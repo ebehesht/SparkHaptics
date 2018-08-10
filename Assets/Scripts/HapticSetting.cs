@@ -23,110 +23,10 @@ public class HapticSetting : MonoBehaviour
     // Called at start of application.
     void Start()
     {
-
-        imagePath = "/../Assets/Resources/Textures/customized/";
-        // create a texture2d
-        // load a 400 by 400 pixel white image
-        Texture2D newTexture = Resources.Load("Textures/customized/white400") as Texture2D;
-        int imageHeight = newTexture.height;
-        int imageWidth = newTexture.width;
-
-        //CreateNoiseTexture(newTexture, imageWidth, imageHeight);
-        //CreateStripedTexture(newTexture, imageWidth, imageHeight);
-        //CreatePolkaDotTexture(newTexture, imageWidth, imageHeight);
-
-        //Connect to the service and begin intializing the haptic resources.
-        
+        //Connect to the service and begin intializing the haptic resources.        
         InitHaptics();
         //ShowHapticSprite();
     }
-
-
-    // create a noise texture
-    void CreateNoiseTexture(Texture2D newTexture, int imgW, int imgH)
-    {
-        for (int i = 0; i < imgW; i++)
-        {
-            for (int j = 0; j < imgH; j++)
-            {
-                float value = Random.value;
-                newTexture.SetPixel(i, j, new Color(value, value, value));
-            }
-        }
-
-        byte[] bytes = newTexture.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath + imagePath + "createdNoiseTexture" + ".png", bytes);
-
-    }
-
-    // create a polka dot pattern
-    void CreatePolkaDotTexture(Texture2D newTexture, int imgW, int imgH)
-    {
-        int x;
-        int y;
-        for (int i = 0; i < 300; i++)
-        {
-            //create 200 black points distributed randomly in the background
-            x = Random.Range(0, imgW);
-            y = Random.Range(0, imgH);
-            Circle(newTexture, x, y, Random.Range(1, 7), Color.black);
-            //newTexture.SetPixel(x, y, Color.black);
-
-        }
-        byte[] bytes = newTexture.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath + imagePath + "createdPolkaDotTexture" + ".png", bytes);
-
-    }
-
-    //create a striped Texture
-    void CreateStripedTexture(Texture2D newTexture, int imgW, int imgH)
-    {
-        for (int i = 0; i < imgW; i++)
-        {
-            for (int j = 0; j < imgH; j++)
-            {
-                if ((i + j) % 7 == 0)
-                {
-                    newTexture.SetPixel(i, j, Color.black);
-                }
-                if ((i + j) % 7 == 1)
-                {
-                    newTexture.SetPixel(i, j, new Vector4(0.6F, 0.6F, 0.6F, 1));
-                }
-                if ((i + j) % 7 == 2)
-                {
-                    newTexture.SetPixel(i, j, new Vector4(0.3F, 0.3F, 0.3F, 1));
-                }
-            }
-        }
-        byte[] bytes = newTexture.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath + imagePath + "createdXTexture" + ".png", bytes);
-    }
-
-    public void Circle(Texture2D tex, int cx, int cy, int r, Color col)
-    {
-        int x, y, px, nx, py, ny, d;
-
-        for (x = 0; x <= r; x++)
-        {
-            d = (int)Mathf.Ceil(Mathf.Sqrt(r * r - x * x));
-            for (y = 0; y <= d; y++)
-            {
-                px = cx + x;
-                nx = cx - x;
-                py = cy + y;
-                ny = cy - y;
-
-                tex.SetPixel(px, py, col);
-                tex.SetPixel(nx, py, col);
-
-                tex.SetPixel(px, ny, col);
-                tex.SetPixel(nx, ny, col);
-
-            }
-        }
-    }
-
 
     // Following Start() this is called in a loop.
     void Update()
@@ -333,9 +233,14 @@ public class HapticSetting : MonoBehaviour
 
     public void ActivateHaptic(bool setActive)
     {
+        if (mHapticView != null)
+        {
+            if (setActive) mHapticView.Activate();
+            else mHapticView.Deactivate();
+
+        }
         //mHapticSprite.SetEnabled(true);
-        if (setActive) mHapticView.Activate();
-        else mHapticView.Deactivate();
+
     }
 
     

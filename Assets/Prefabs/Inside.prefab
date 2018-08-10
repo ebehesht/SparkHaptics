@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4248068832233042}
   - component: {fileID: 212392353674791742}
   - component: {fileID: 114910438729996980}
+  - component: {fileID: 61075475726202028}
   m_Layer: 8
   m_Name: Inside
   m_TagString: Untagged
@@ -107,8 +108,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295163355051756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.66, y: 1.86, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 0, y: 1.09, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.6}
   m_Children:
   - {fileID: 4712968188181232}
   - {fileID: 4769338542717746}
@@ -137,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162618443140902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.157, z: 0}
+  m_LocalPosition: {x: 0, y: 0.157, z: 0}
   m_LocalScale: {x: 11.923429, y: 5.5293694, z: 1}
   m_Children: []
   m_Father: {fileID: 4248068832233042}
@@ -163,8 +164,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1337223129534794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0009999983, z: 0}
-  m_LocalScale: {x: 6.8270626, y: 4.902125, z: 0.99999994}
+  m_LocalPosition: {x: 0.018, y: 0.039, z: 0}
+  m_LocalScale: {x: 12.898306, y: 6.4105077, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 4248068832233042}
   m_RootOrder: 2
@@ -337,6 +338,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162618443140902}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!61 &61075475726202028
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295163355051756}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.12985349}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 12.17, y: 8.39}
+    newSize: {x: 6.02, y: 3.92}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 12.17, y: 5.5332274}
+  m_EdgeRadius: 0
 --- !u!114 &114405753343435694
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,12 +8,15 @@ public class TouchEvents : MonoBehaviour {
     bool chargeIsTapped;
     GameObject touchedCharge;
     Vector3 touchPosWorld;
-    Vector3 offset;
+    Vector3 offset;    
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         chargeIsTapped = false;
-	}
+
+        Debug.Log("executing touchevents script");
+
+    }
 
     // Update is called once per frame
     void Update() {
@@ -37,9 +40,9 @@ public class TouchEvents : MonoBehaviour {
             GameObject thisOutline = GameObject.Find("circuit-outline");
             if (thisOutline != null)
             {
-                Debug.Log("touched circuit outline");
-                GameObject haptic = thisOutline.transform.GetChild(0).gameObject;
-                haptic.SetActive(true);
+                //Debug.Log("touched circuit outline");
+                //HapticSquare haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
+                //if (haptic != null) haptic.ActivateHaptic();
 
             }
 
@@ -62,76 +65,14 @@ public class TouchEvents : MonoBehaviour {
             }
             if (hitInformation.collider != null)
             {
-                //We should have hit something with a 2D Physics collider!
-                //find the object that is touched
-                // touched = Resistor
+                //find if the object that is touched is the resistor
                 if (hitInformation.transform.gameObject.tag == "Resistor")
                 {
-                    //touchedCharge = hitInformation.transform.gameObject;
-                    //chargeIsTapped = true;
-                    //offset = touchPosWorld - touchedCharge.transform.position;
-                    //Debug.Log("Touched " + touchedCharge.name);
-
-
                     SceneManager.LoadScene("Resistance");
-
-
                 }
 
             }
 
-            /*
-
-            // touched = circuit outline 
-            if (hitInformation.transform.gameObject.tag == "Outline")
-            {
-                GameObject thisOutline = GameObject.Find("circuit-outline");
-                if (thisOutline != null)
-                {
-                    Debug.Log("touched circuit outline");
-                    GameObject haptic = thisOutline.transform.GetChild(0).gameObject;
-                    haptic.SetActive(true);
-
-                }
-
-            }
-
-            // touched = Resistor
-            else if (hitInformation.transform.gameObject.tag == "Resistor")
-            {
-                touchedCharge = hitInformation.transform.gameObject;
-                chargeIsTapped = true;
-                offset = touchPosWorld - touchedCharge.transform.position;
-                Debug.Log("Touched " + touchedCharge.name);
-
-
-                SceneManager.LoadScene("Resistance");
-
-
-            }
-
-            // touched = Inside view of resistor
-            else if (hitInformation.transform.gameObject.tag == "Inside")
-            {                    
-                GameObject thisComponent = GameObject.Find("Component");
-                if (thisComponent != null)
-                {
-                    GameObject haptic;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        haptic = thisComponent.transform.GetChild(i).gameObject;
-                        haptic.SetActive(false);
-                    }
-                    haptic = thisComponent.transform.GetChild(GlobalVariables.RGlobal - 1).gameObject;
-                    haptic.SetActive(true);
-
-                }
-
-            }
-            */
-
-
-            //}
         }
 
         // TOUCH MOVE //
@@ -157,9 +98,8 @@ public class TouchEvents : MonoBehaviour {
             GameObject thisOutline = GameObject.Find("circuit-outline");
             if (thisOutline != null)
             {
-                Debug.Log("now deactivate the haptics");
-                GameObject haptic = thisOutline.transform.GetChild(0).gameObject;
-                haptic.SetActive(false);
+                //HapticSquare haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
+                //if (haptic != null) haptic.DeactivateHaptic();
 
             }
 

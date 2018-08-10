@@ -10,6 +10,8 @@ TagManager:
   - Resistor
   - Inside
   - Outline
+  - ButtonA
+  - ButtonB
   layers:
   - Default
   - TransparentFX

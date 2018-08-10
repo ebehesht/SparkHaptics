@@ -14,3 +14,14 @@ Resistance Scene: a micro view with a slider, changing the R value and sprite (c
 1. work on the representation of the inside view
 
 2. enable changing resistance of different components of the circuit.
+
+
+08/09/2018
+
+1. Adding directionality to current
+2. Making only one object for the haptics instead of multiple objects.
+3. work on the scenes, maybe the code can be reduced into fewerer scenes.
+
+
+
+

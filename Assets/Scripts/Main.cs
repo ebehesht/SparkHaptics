@@ -8,6 +8,8 @@ public static class GlobalVariables
     public static int thisCircuit = 1;
     public static int RGlobal = 1;
 
+    
+
 }
 
 public class Main : MonoBehaviour
