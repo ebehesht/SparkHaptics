@@ -95,30 +95,30 @@ public class HapticSquare : MonoBehaviour
 
 
             case "HapticSquare": // circuit A
-                imagePath = "Textures/options/stripe-circuit";
+                imagePath = "Textures/options/raw/noise-sharp";
                 break;
-            case "HapticSquare1": // circuit A high
-                imagePath = "Textures/options/stripe-circuit";
-                break;
-            case "HapticSquare2": // circuit A medium
-                imagePath = "Textures/options/stripe-medium-circuit";
-                break;
-            case "HapticSquare3": // circuit A low
-                imagePath = "Textures/options/stripe-soft-circuit";
-                break;
+            //case "HapticSquare1": // circuit A high
+            //    imagePath = "Textures/options/stripe-circuit";
+            //    break;
+            //case "HapticSquare2": // circuit A medium
+            //    imagePath = "Textures/options/stripe-medium-circuit";
+            //    break;
+            //case "HapticSquare3": // circuit A low
+            //    imagePath = "Textures/options/stripe-soft-circuit";
+            //    break;
 
-            case "HapticSquareA": // circuit A Option 1
-                imagePath = "Textures/options/stripe-circuit";
-                break;
-            case "HapticSquareB": // circuit A Option 2
-                imagePath = "Textures/options/checker-circuit";
-                break;
-            case "HapticSquareC": // circuit A Option 3
-                imagePath = "Textures/options/dots-circuit";
-                break;
-            case "HapticSquareD": // circuit A Option 4
-                imagePath = "Textures/options/noise-sharp-circuit";
-                break;
+            //case "HapticSquareA": // circuit A Option 1
+            //    imagePath = "Textures/options/stripe-circuit";
+            //    break;
+            //case "HapticSquareB": // circuit A Option 2
+            //    imagePath = "Textures/options/checker-circuit";
+            //    break;
+            //case "HapticSquareC": // circuit A Option 3
+            //    imagePath = "Textures/options/dots-circuit";
+            //    break;
+            //case "HapticSquareD": // circuit A Option 4
+            //    imagePath = "Textures/options/noise-sharp-circuit";
+            //    break;
         }
         Texture2D _texture = Resources.Load(imagePath) as Texture2D;
         byte[] textureData = TanvasTouch.HapticUtil.CreateHapticDataFromTexture(_texture, TanvasTouch.HapticUtil.Mode.Brightness);

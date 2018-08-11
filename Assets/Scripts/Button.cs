@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class Button : MonoBehaviour {
 
-    //private HapticSquare haptic;
+    private HapticSquare haptic;
+
+    // different textures
     private HapticSquare hapticA;
     private HapticSquare hapticB;
     private HapticSquare hapticC;
@@ -26,27 +28,30 @@ public class Button : MonoBehaviour {
 
         Debug.Log("starting executing button script");
 
-        hapticA = GameObject.Find("HapticSquareA").GetComponent<HapticSquare>();
-        if (hapticA != null) hapticA.DeactivateHaptic();
+        haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
+        if (haptic != null) haptic.DeactivateHaptic();
 
-        hapticB = GameObject.Find("HapticSquareB").GetComponent<HapticSquare>();
-        if (hapticB != null) hapticB.DeactivateHaptic();
+        //hapticA = GameObject.Find("HapticSquareA").GetComponent<HapticSquare>();
+        //if (hapticA != null) hapticA.DeactivateHaptic();
 
-        hapticC = GameObject.Find("HapticSquareC").GetComponent<HapticSquare>();
-        if (hapticC != null) hapticC.DeactivateHaptic();
+        //hapticB = GameObject.Find("HapticSquareB").GetComponent<HapticSquare>();
+        //if (hapticB != null) hapticB.DeactivateHaptic();
 
-        hapticD = GameObject.Find("HapticSquareD").GetComponent<HapticSquare>();
-        if (hapticD != null) hapticD.DeactivateHaptic();
+        //hapticC = GameObject.Find("HapticSquareC").GetComponent<HapticSquare>();
+        //if (hapticC != null) hapticC.DeactivateHaptic();
 
-        // Current strength
-        haptic1 = GameObject.Find("HapticSquare1").GetComponent<HapticSquare>();
-        if (haptic1 != null) haptic1.DeactivateHaptic();
+        //hapticD = GameObject.Find("HapticSquareD").GetComponent<HapticSquare>();
+        //if (hapticD != null) hapticD.DeactivateHaptic();
 
-        haptic2 = GameObject.Find("HapticSquare2").GetComponent<HapticSquare>();
-        if (haptic2 != null) haptic2.DeactivateHaptic();
+        //// Current strength
+        //haptic1 = GameObject.Find("HapticSquare1").GetComponent<HapticSquare>();
+        //if (haptic1 != null) haptic1.DeactivateHaptic();
 
-        haptic3 = GameObject.Find("HapticSquare3").GetComponent<HapticSquare>();
-        if (haptic3 != null) haptic3.DeactivateHaptic();
+        //haptic2 = GameObject.Find("HapticSquare2").GetComponent<HapticSquare>();
+        //if (haptic2 != null) haptic2.DeactivateHaptic();
+
+        //haptic3 = GameObject.Find("HapticSquare3").GetComponent<HapticSquare>();
+        //if (haptic3 != null) haptic3.DeactivateHaptic();
 
         spriteA1 = Resources.Load<Sprite>("Sprites/Circuits/circuitA");
         spriteA2 = Resources.Load<Sprite>("Sprites/Circuits/circuitA2");
@@ -134,8 +139,6 @@ public class Button : MonoBehaviour {
 
     public void ChangeCircuit(int C)
     {
-
-        int version = 0;
         haptic1.DeactivateHaptic();
         haptic2.DeactivateHaptic();
         haptic3.DeactivateHaptic();
@@ -167,9 +170,5 @@ public class Button : MonoBehaviour {
                 break;
 
         }
-
-
-
     }
-
 }
