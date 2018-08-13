@@ -62,8 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Button.cs" />
+    <Compile Include="Assets\Scripts\Circuit.cs" />
     <Compile Include="Assets\Scripts\HapticSquare.cs" />
-    <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\Others\CircuitComponent.cs" />
     <Compile Include="Assets\Scripts\Others\HapticSetting.cs" />
     <Compile Include="Assets\Scripts\Others\InsideComponent.cs" />

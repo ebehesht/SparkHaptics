@@ -8,17 +8,6 @@ public class Button : MonoBehaviour {
 
     private HapticSquare haptic;
 
-    // different textures
-    private HapticSquare hapticA;
-    private HapticSquare hapticB;
-    private HapticSquare hapticC;
-    private HapticSquare hapticD;
-
-    // strength
-    private HapticSquare haptic1;
-    private HapticSquare haptic2;
-    private HapticSquare haptic3;
-
     private Sprite spriteA1;
     private Sprite spriteA2;
     private Sprite spriteA3;
@@ -28,30 +17,8 @@ public class Button : MonoBehaviour {
 
         Debug.Log("starting executing button script");
 
-        haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
-        if (haptic != null) haptic.DeactivateHaptic();
-
-        //hapticA = GameObject.Find("HapticSquareA").GetComponent<HapticSquare>();
-        //if (hapticA != null) hapticA.DeactivateHaptic();
-
-        //hapticB = GameObject.Find("HapticSquareB").GetComponent<HapticSquare>();
-        //if (hapticB != null) hapticB.DeactivateHaptic();
-
-        //hapticC = GameObject.Find("HapticSquareC").GetComponent<HapticSquare>();
-        //if (hapticC != null) hapticC.DeactivateHaptic();
-
-        //hapticD = GameObject.Find("HapticSquareD").GetComponent<HapticSquare>();
-        //if (hapticD != null) hapticD.DeactivateHaptic();
-
-        //// Current strength
-        //haptic1 = GameObject.Find("HapticSquare1").GetComponent<HapticSquare>();
-        //if (haptic1 != null) haptic1.DeactivateHaptic();
-
-        //haptic2 = GameObject.Find("HapticSquare2").GetComponent<HapticSquare>();
-        //if (haptic2 != null) haptic2.DeactivateHaptic();
-
-        //haptic3 = GameObject.Find("HapticSquare3").GetComponent<HapticSquare>();
-        //if (haptic3 != null) haptic3.DeactivateHaptic();
+        //haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
+        //if (haptic != null) haptic.DeactivateHaptic();
 
         spriteA1 = Resources.Load<Sprite>("Sprites/Circuits/circuitA");
         spriteA2 = Resources.Load<Sprite>("Sprites/Circuits/circuitA2");
@@ -108,28 +75,27 @@ public class Button : MonoBehaviour {
     public void ChangeHaptic(int option)
     {
         //thisHaptic.DeactivateHaptic();
-        hapticA.DeactivateHaptic();
-        hapticB.DeactivateHaptic();
-        hapticC.DeactivateHaptic();
-        hapticD.DeactivateHaptic();
+        //haptic.DeactivateHaptic();
 
         switch (option)
         {
             case 1:
-                hapticA.ActivateHaptic();
-                //thisHaptic = hapticA;
+                //currentHapticType = WheelHaptics.HapticType.BUMPY;
+                
+                haptic.UpdateHaptics(HapticSquare.HapticType.NOISEHIGH);
+                //haptic.ActivateHaptic();
                 break;
             case 2:
-                hapticB.ActivateHaptic();
-                //thisHaptic = hapticB;
+                haptic.UpdateHaptics(HapticSquare.HapticType.DOTS);
+                //haptic.ActivateHaptic();
                 break;
             case 3:
-                hapticC.ActivateHaptic();
-                //thisHaptic = hapticC;
+                haptic.UpdateHaptics(HapticSquare.HapticType.CHECKERS);
+                //haptic.ActivateHaptic();
                 break;
             case 4:
-                hapticD.ActivateHaptic();
-                //thisHaptic = hapticD;
+                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
+                //haptic.ActivateHaptic();
                 break;
         }    
 
@@ -139,9 +105,7 @@ public class Button : MonoBehaviour {
 
     public void ChangeCircuit(int C)
     {
-        haptic1.DeactivateHaptic();
-        haptic2.DeactivateHaptic();
-        haptic3.DeactivateHaptic();
+        haptic.DeactivateHaptic();
 
         GameObject circuit = GameObject.Find("Circuit");
         SpriteRenderer circuitSpriteR = circuit.GetComponent<SpriteRenderer>();
@@ -154,11 +118,13 @@ public class Button : MonoBehaviour {
                     circuitSpriteR.sprite = spriteA1;
                 }
                 else { circuitSpriteR.sprite = spriteA3; }
-                haptic1.ActivateHaptic();                
+                haptic.UpdateHaptics(HapticSquare.HapticType.NOISEHIGH);
+                haptic.ActivateHaptic();
                 break;
             case 2:
                 circuitSpriteR.sprite = spriteA2;
-                haptic2.ActivateHaptic();                
+                haptic.UpdateHaptics(HapticSquare.HapticType.NOISEMED);
+                haptic.ActivateHaptic();
                 break;
             case 3:
                 if (this.tag == "ButtonA")
@@ -166,7 +132,8 @@ public class Button : MonoBehaviour {
                     circuitSpriteR.sprite = spriteA3;
                 }
                 else { circuitSpriteR.sprite = spriteA1; }
-                haptic3.ActivateHaptic();                
+                haptic.UpdateHaptics(HapticSquare.HapticType.NOISELOW);
+                haptic.ActivateHaptic();
                 break;
 
         }

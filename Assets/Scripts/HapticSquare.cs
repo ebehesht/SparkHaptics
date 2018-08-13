@@ -10,33 +10,50 @@ public class HapticSquare : MonoBehaviour
 
     [SerializeField]
     private Camera _camera;
-    private HapticServiceAdapter mHapticServiceAdapter;
-    private HapticView mHapticView;
-    private HapticTexture mHapticTexture;
-    private HapticMaterial mHapticMaterial;
-    private HapticSprite mHapticSprite;
-    //private ScreenOrientation _previousOrientation = ScreenOrientation.Unknown;
-    private int _previousWidth = 0;
-    private int _previousHeight = 0;
+    private HapticServiceAdapter hapticServiceAdapter;
+    private HapticView hapticView;
+    private HapticTexture hapticTexture;
+    private HapticMaterial hapticMaterial;
+    private HapticSprite hapticSprite;
+    private static Dictionary<string, HapticSprite> hapticSprites = new Dictionary<string, HapticSprite>();
 
-    //public GameObject hapticOnOffButton;
-    //public Sprite hapticsOn;
-    //public Sprite hapticsOff;
 
     //Called at start of application.
     void Start()
     {
-        Debug.Log("executing haptic settings script");
+        Debug.Log("executing haptics script");
+        //_camera = Camera.main; // the camera tagged "MainCamera" 
+
         //Connect to the service and begin intializing the haptic resources.
         InitHaptics();
     }
-    // Update is called once per frame
+
+
+    public sealed class HapticType
+    {
+        public static readonly string CHECKERS = "click";
+
+        public static readonly string NOISEHIGH = "Textures/options/raw/noise-sharp";
+        public static readonly string NOISEMED = "Textures/options/raw/noise-original";
+        public static readonly string NOISELOW = "Textures/options/raw/noise-blur";
+
+        public static readonly string STRIPEHIGH = "Textures/options/raw/stripe";
+        public static readonly string STRIPEMED = "Textures/options/raw/stripe-medium";
+        public static readonly string STRIPELOW = "Textures/options/raw/stripe-soft";
+
+        public static readonly string DOTS = "Textures/options/raw/dots";
+
+
+    }
+
     void Update()
     {
-        if (mHapticView != null)
+
+        if (hapticView != null)
         {
             //Ensure haptic view orientation matches current screen orientation.
-            mHapticView.SetOrientation(Screen.orientation);
+            hapticView.SetOrientation(Screen.orientation);
+
 
             //Retrieve x and y position of square.
             Mesh _mesh = gameObject.GetComponent<MeshFilter>().mesh;
@@ -47,143 +64,132 @@ public class HapticSquare : MonoBehaviour
             }
 
             //Set the size and position of the haptic sprite to correspond to square.
-            mHapticSprite.SetPosition((int)(_meshVerts[0].x), (int)(_meshVerts[0].y));
-            mHapticSprite.SetSize((double)_meshVerts[1].x - _meshVerts[0].x, (double)_meshVerts[1].y - _meshVerts[0].y);
+            hapticSprite.SetPosition((int)(_meshVerts[0].x), (int)(_meshVerts[0].y));
+            hapticSprite.SetSize((double)_meshVerts[1].x - _meshVerts[0].x, (double)_meshVerts[1].y - _meshVerts[0].y);
+
         }
-
-    }
-
-    public sealed class HapticType
-    {
-        public static readonly string RIBBED = "ribbed";
-        public static readonly string CLICK = "click";
-        public static readonly string BUMPY = "bumpy";
     }
 
     void InitHaptics()
     {
         //Get the service adapter
-        mHapticServiceAdapter = HapticServiceAdapter.GetInstance();
+        hapticServiceAdapter = HapticServiceAdapter.GetInstance();
 
         //Create the haptic view with the service adapter instance and then activate it.
-        mHapticView = HapticView.Create(mHapticServiceAdapter);
-        mHapticView.Activate();
+        hapticView = HapticView.Create(hapticServiceAdapter);
+        hapticView.Activate();
 
         //Set orientation of haptic view based on screen orientation.
-        mHapticView.SetOrientation(Screen.orientation);
+        hapticView.SetOrientation(Screen.orientation);
 
         //Retrieve texture data from bitmap.
-        string imagePath = "";
-
-        switch (this.gameObject.name)
-        {
-            //case "HapticSquare": // circuit A
-            //    imagePath = "Textures/options/noise-sharp-circuit";
-            //    break;
-            //case "HapticSquare1": // circuit A high
-            //    imagePath = "Textures/options/noise-sharp-circuit";
-            //    break;
-            //case "HapticSquare2": // circuit A medium
-            //    imagePath = "Textures/options/noise-original-circuit";
-            //    break;
-            //case "HapticSquare3": // circuit A low
-            //    imagePath = "Textures/options/noise-blur-circuit";
-            //    break;
-            //case "HapticSquare4": // circuit A Option 4 XXX
-            //    imagePath = "";
-            //    break;
-
-
-            case "HapticSquare": // circuit A
-                imagePath = "Textures/options/raw/noise-sharp";
-                break;
-            //case "HapticSquare1": // circuit A high
-            //    imagePath = "Textures/options/stripe-circuit";
-            //    break;
-            //case "HapticSquare2": // circuit A medium
-            //    imagePath = "Textures/options/stripe-medium-circuit";
-            //    break;
-            //case "HapticSquare3": // circuit A low
-            //    imagePath = "Textures/options/stripe-soft-circuit";
-            //    break;
-
-            //case "HapticSquareA": // circuit A Option 1
-            //    imagePath = "Textures/options/stripe-circuit";
-            //    break;
-            //case "HapticSquareB": // circuit A Option 2
-            //    imagePath = "Textures/options/checker-circuit";
-            //    break;
-            //case "HapticSquareC": // circuit A Option 3
-            //    imagePath = "Textures/options/dots-circuit";
-            //    break;
-            //case "HapticSquareD": // circuit A Option 4
-            //    imagePath = "Textures/options/noise-sharp-circuit";
-            //    break;
-        }
-        Texture2D _texture = Resources.Load(imagePath) as Texture2D;
+        Texture2D _texture = Resources.Load("Textures/options/noise-sharp-circuit") as Texture2D;
         byte[] textureData = TanvasTouch.HapticUtil.CreateHapticDataFromTexture(_texture, TanvasTouch.HapticUtil.Mode.Brightness);
 
         //Create a haptic texture with the retrieved texture data.
-        mHapticTexture = HapticTexture.Create(mHapticServiceAdapter);
-        mHapticTexture.SetSize(_texture.width, _texture.height);
-        mHapticTexture.SetData(textureData);
+        hapticTexture = HapticTexture.Create(hapticServiceAdapter);
+        hapticTexture.SetSize(_texture.width, _texture.height);
+        hapticTexture.SetData(textureData);
 
         //Create a haptic material with the created haptic texture.
-        mHapticMaterial = HapticMaterial.Create(mHapticServiceAdapter);
-        mHapticMaterial.SetTexture(0, mHapticTexture);
+        hapticMaterial = HapticMaterial.Create(hapticServiceAdapter);
+        hapticMaterial.SetTexture(0, hapticTexture);
 
         //Create a haptic sprite with the haptic material.
-        mHapticSprite = HapticSprite.Create(mHapticServiceAdapter);
-        mHapticSprite.SetMaterial(mHapticMaterial);
+        hapticSprite = HapticSprite.Create(hapticServiceAdapter);
+        hapticSprite.SetMaterial(hapticMaterial);
 
         //Add the haptic sprite to the haptic view.
-        mHapticView.AddSprite(mHapticSprite);
+        hapticView.AddSprite(hapticSprite);
 
     }
 
-    public void SetHapticViewState()
+    void InitHaptics2()
+    {
+        //Get the service adapter
+        hapticServiceAdapter = HapticServiceAdapter.GetInstance();
+
+        if (hapticServiceAdapter != null)
+        {
+            //Create the haptic view with the service adapter instance and then activate it.
+            hapticView = HapticView.Create(hapticServiceAdapter);
+            hapticView.Activate();
+            hapticView.SetOrientation(Screen.orientation);
+        }
+
+    }
+
+    public void UpdateHaptics(string type)
     {
 
-        Debug.Log("button is clicked");
-        if (mHapticView != null)
+        if (hapticView != null)
         {
-            if (mHapticView.IsActive())
+            hapticView.RemoveSprite(hapticSprite);
+
+            if (hapticSprites.ContainsKey(type))
             {
-                mHapticView.Deactivate();
-                Debug.Log("Haptic is deactivated");
-                //hapticOnOffButton.GetComponent<Image>().sprite = hapticsOff;
-                //hapticViewStateText.text = "Activate Haptics";
+                hapticSprite = hapticSprites[type];
+                hapticView.AddSprite(hapticSprite);
             }
             else
             {
-                mHapticView.Activate();
-                Debug.Log("Haptic is activated");
-                //hapticOnOffButton.GetComponent<Image>().sprite = hapticsOn;
-                //hapticViewStateText.text = "Deactivate Haptics";
+                AddHapticSprite(type);
             }
         }
     }
 
+    private void AddHapticSprite(string type)
+    {
+        //HapticServiceAdapter hapticServiceAdapter = HapticServiceAdapter.GetInstance();
+
+        Texture2D texture = Resources.Load(type) as Texture2D;
+        byte[] textureData = TanvasTouch.HapticUtil.CreateHapticDataFromTexture(texture, TanvasTouch.HapticUtil.Mode.Brightness);
+
+        HapticTexture hapticTexture = HapticTexture.Create(hapticServiceAdapter);
+        hapticTexture.SetSize(texture.width, texture.height);
+        hapticTexture.SetData(textureData);
+
+        HapticMaterial hapticMaterial = HapticMaterial.Create(hapticServiceAdapter);
+        hapticMaterial.SetTexture(0, hapticTexture);
+
+        hapticSprite = HapticSprite.Create(hapticServiceAdapter);
+        hapticSprite.SetMaterial(hapticMaterial);
+        //hapticSprite.SetSize(texture.width, texture.height);
+        //hapticSprite.SetPosition((Screen.width - texture.width) / 2, ((int)transform.localPosition.y) + (Screen.height - texture.height) / 2);
+
+        hapticView.AddSprite(hapticSprite);
+
+        hapticSprites.Add(type, hapticSprite);
+
+    }
+
+    public void SetEnabled(bool enabled)
+    {
+        if (hapticSprite != null)
+        {
+            hapticSprite.SetEnabled(enabled);
+        }
+    }
+
+
     public void ActivateHaptic()
     {
-        if (mHapticView != null)
+        if (hapticView != null)
         {
-            mHapticView.Activate();
+            hapticView.Activate();
         }
     }
 
     public void DeactivateHaptic()
     {
-        if (mHapticView != null)
+        if (hapticView != null)
         {
-            mHapticView.Deactivate();
+            hapticView.Deactivate();
         }
     }
 
-
-
     void OnDestroy()
     {
-        if (mHapticView != null) mHapticView.Deactivate();
+        if (hapticView != null) hapticView.Deactivate();
     }
 }

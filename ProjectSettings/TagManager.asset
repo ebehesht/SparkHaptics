@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Haptic
   - Charge
   - CComponent
   - Resistor
@@ -12,6 +11,11 @@ TagManager:
   - Outline
   - ButtonA
   - ButtonB
+  - RightZone
+  - LeftZone
+  - UpZone
+  - DownZone
+  - Haptic
   layers:
   - Default
   - TransparentFX
