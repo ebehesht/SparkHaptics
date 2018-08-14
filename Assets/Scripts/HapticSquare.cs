@@ -31,6 +31,8 @@ public class HapticSquare : MonoBehaviour
 
     public sealed class HapticType
     {
+        public static readonly string TEST = "Textures/options/noise-sharp-circuit";
+
         public static readonly string CHECKERS = "click";
 
         public static readonly string NOISEHIGH = "Textures/options/raw/noise-sharp";
@@ -75,46 +77,12 @@ public class HapticSquare : MonoBehaviour
         //Get the service adapter
         hapticServiceAdapter = HapticServiceAdapter.GetInstance();
 
-        //Create the haptic view with the service adapter instance and then activate it.
-        hapticView = HapticView.Create(hapticServiceAdapter);
-        hapticView.Activate();
-
-        //Set orientation of haptic view based on screen orientation.
-        hapticView.SetOrientation(Screen.orientation);
-
-        //Retrieve texture data from bitmap.
-        Texture2D _texture = Resources.Load("Textures/options/noise-sharp-circuit") as Texture2D;
-        byte[] textureData = TanvasTouch.HapticUtil.CreateHapticDataFromTexture(_texture, TanvasTouch.HapticUtil.Mode.Brightness);
-
-        //Create a haptic texture with the retrieved texture data.
-        hapticTexture = HapticTexture.Create(hapticServiceAdapter);
-        hapticTexture.SetSize(_texture.width, _texture.height);
-        hapticTexture.SetData(textureData);
-
-        //Create a haptic material with the created haptic texture.
-        hapticMaterial = HapticMaterial.Create(hapticServiceAdapter);
-        hapticMaterial.SetTexture(0, hapticTexture);
-
-        //Create a haptic sprite with the haptic material.
-        hapticSprite = HapticSprite.Create(hapticServiceAdapter);
-        hapticSprite.SetMaterial(hapticMaterial);
-
-        //Add the haptic sprite to the haptic view.
-        hapticView.AddSprite(hapticSprite);
-
-    }
-
-    void InitHaptics2()
-    {
-        //Get the service adapter
-        hapticServiceAdapter = HapticServiceAdapter.GetInstance();
-
         if (hapticServiceAdapter != null)
         {
             //Create the haptic view with the service adapter instance and then activate it.
             hapticView = HapticView.Create(hapticServiceAdapter);
             hapticView.Activate();
-            hapticView.SetOrientation(Screen.orientation);
+            hapticView.SetOrientation(Screen.orientation); //Set orientation of haptic view based on screen orientation.
         }
 
     }
@@ -171,7 +139,7 @@ public class HapticSquare : MonoBehaviour
         }
     }
 
-
+    // maybe switch from these two functions to SetEnabled function
     public void ActivateHaptic()
     {
         if (hapticView != null)

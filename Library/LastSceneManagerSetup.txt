@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/CircuitA.unity
+- path: Assets/Scenes/CircuitA Strength V2.unity
   isLoaded: 1
   isActive: 1

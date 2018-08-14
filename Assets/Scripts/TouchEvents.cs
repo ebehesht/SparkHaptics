@@ -61,11 +61,15 @@ public class TouchEvents : MonoBehaviour {
                 {
                     FlowCurrent("up");
                 }
-                else Debug.Log("XXX error in touch move");
+                else
+                {
+                    haptic.SetEnabled(false);
+                    Debug.Log("ERROR");
+                }
             }
             else
             {
-                haptic.DeactivateHaptic();
+                haptic.SetEnabled(false);
                 Debug.Log("moving out of the outline!");
             }
             touchPosWorldPrev = touchPosWorld;
@@ -74,7 +78,7 @@ public class TouchEvents : MonoBehaviour {
         // TOUCH END //
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            haptic.DeactivateHaptic();
+            haptic.SetEnabled(false);
             Debug.Log("touch end circuit outline");
 
         }
@@ -85,12 +89,15 @@ public class TouchEvents : MonoBehaviour {
 
         if (Moving(touchPosWorldPrev, touchPosWorld, dir))
         {
-            haptic.ActivateHaptic();
+            haptic.SetEnabled(true);
+            haptic.UpdateHaptics(HapticSquare.HapticType.TEST);
             Debug.Log("moving " + dir);
         }
         else
         {
-            haptic.DeactivateHaptic();
+            //haptic.DeactivateHaptic();
+            haptic.SetEnabled(true);
+            haptic.UpdateHaptics(HapticSquare.HapticType.NOISELOW);
             Debug.Log("moving opposite direction!");
         }
 
