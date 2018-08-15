@@ -31,9 +31,32 @@ public class HapticSquare : MonoBehaviour
 
     public sealed class HapticType
     {
-        public static readonly string TEST = "Textures/options/noise-sharp-circuit";
 
-        public static readonly string CHECKERS = "click";
+        // circuit versions
+        public static readonly string CHECKERS = "Textures/options/checker-circuit";
+
+        public static readonly string NOISEHIGH = "Textures/options/noise-sharp-circuit";
+        public static readonly string NOISEMED = "Textures/options/noise-original-circuit";
+        public static readonly string NOISELOW = "Textures/options/noise-blur-circuit";
+
+        public static readonly string STRIPEHIGH = "Textures/options/stripe-circuit";
+        public static readonly string STRIPEMED = "Textures/options/stripe-medium-circuit";
+        public static readonly string STRIPELOW = "Textures/options/stripe-soft-circuit";
+
+        public static readonly string DOTS = "Textures/options/dots-circuit";
+
+        public static readonly string BAR01 = "Textures/bars/stripe-density1mm";
+        public static readonly string BAR02 = "Textures/bars/stripe-density2mm";
+        public static readonly string BAR03 = "Textures/bars/stripe-density4mm";
+        public static readonly string BAR04 = "Textures/bars/stripe-density8mm";
+
+        public static readonly string BAR11 = "Textures/bars/stripe-pulse";
+        public static readonly string BAR12 = "Textures/bars/stripe-pulse-blur2";
+        public static readonly string BAR13 = "Textures/bars/stripe-pulse-blur4";
+
+        // raw versions
+        /*
+        public static readonly string CHECKERS = "Textures/options/raw/checker";
 
         public static readonly string NOISEHIGH = "Textures/options/raw/noise-sharp";
         public static readonly string NOISEMED = "Textures/options/raw/noise-original";
@@ -44,7 +67,7 @@ public class HapticSquare : MonoBehaviour
         public static readonly string STRIPELOW = "Textures/options/raw/stripe-soft";
 
         public static readonly string DOTS = "Textures/options/raw/dots";
-
+        */
 
     }
 

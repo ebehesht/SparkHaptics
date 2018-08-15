@@ -29,7 +29,7 @@ public class Circuit : MonoBehaviour {
 
         haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
 
-        currentHapticType = HapticSquare.HapticType.TEST;
+        currentHapticType = HapticSquare.HapticType.NOISEHIGH;
         haptic.UpdateHaptics(currentHapticType);
     }
 	
@@ -42,25 +42,36 @@ public class Circuit : MonoBehaviour {
     {
         //thisHaptic.DeactivateHaptic();
         //haptic.DeactivateHaptic();
+        //haptic.SetEnabled(false);
 
         switch (option)
         {
             case 1:
-                //currentHapticType = WheelHaptics.HapticType.BUMPY;
-
-                haptic.UpdateHaptics(HapticSquare.HapticType.NOISEHIGH);
+                currentHapticType = HapticSquare.HapticType.NOISEHIGH;
+                haptic.UpdateHaptics(currentHapticType);
+                //haptic.SetEnabled(true);
+                Debug.Log(currentHapticType);
                 //haptic.ActivateHaptic();
                 break;
             case 2:
-                haptic.UpdateHaptics(HapticSquare.HapticType.DOTS);
+                currentHapticType = HapticSquare.HapticType.DOTS;
+                haptic.UpdateHaptics(currentHapticType);
+                //haptic.SetEnabled(true);
+                Debug.Log(currentHapticType);
                 //haptic.ActivateHaptic();
                 break;
             case 3:
-                haptic.UpdateHaptics(HapticSquare.HapticType.CHECKERS);
+                currentHapticType = HapticSquare.HapticType.CHECKERS;
+                haptic.UpdateHaptics(currentHapticType);
+                //haptic.SetEnabled(true);
+                Debug.Log(currentHapticType);
                 //haptic.ActivateHaptic();
                 break;
             case 4:
-                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
+                currentHapticType = HapticSquare.HapticType.STRIPEHIGH;
+                haptic.UpdateHaptics(currentHapticType);
+                //haptic.SetEnabled(true);
+                Debug.Log(currentHapticType);
                 //haptic.ActivateHaptic();
                 break;
         }
@@ -71,7 +82,7 @@ public class Circuit : MonoBehaviour {
 
     public void ChangeCircuit(int C)
     {
-        haptic.DeactivateHaptic();
+        //haptic.DeactivateHaptic();
 
         GameObject circuit = GameObject.Find("Circuit");
         SpriteRenderer circuitSpriteR = circuit.GetComponent<SpriteRenderer>();
@@ -79,27 +90,29 @@ public class Circuit : MonoBehaviour {
         switch (C)
         {
             case 1:
-                if (this.tag == "ButtonA")
+                if (this.name == "circuit-outlineS1")
                 {
                     circuitSpriteR.sprite = spriteA1;
+                    
                 }
-                else { circuitSpriteR.sprite = spriteA3; }
-                haptic.UpdateHaptics(HapticSquare.HapticType.NOISEHIGH);
-                haptic.ActivateHaptic();
+                else { circuitSpriteR.sprite = spriteA3; Debug.Log("testing circuit change code"); }
+                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
+                //haptic.ActivateHaptic();
                 break;
             case 2:
                 circuitSpriteR.sprite = spriteA2;
-                haptic.UpdateHaptics(HapticSquare.HapticType.NOISEMED);
-                haptic.ActivateHaptic();
+                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEMED);
+                //haptic.ActivateHaptic();
                 break;
             case 3:
-                if (this.tag == "ButtonA")
+                if (this.name == "circuit-outlineS1")
                 {
                     circuitSpriteR.sprite = spriteA3;
+                    
                 }
-                else { circuitSpriteR.sprite = spriteA1; }
-                haptic.UpdateHaptics(HapticSquare.HapticType.NOISELOW);
-                haptic.ActivateHaptic();
+                else { circuitSpriteR.sprite = spriteA1; Debug.Log("testing circuit change code"); }
+                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPELOW);
+                //haptic.ActivateHaptic();
                 break;
 
         }

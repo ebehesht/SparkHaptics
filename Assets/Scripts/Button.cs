@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Button : MonoBehaviour {
-    
+
+
     // Use this for initialization
     void Start () {
 
         Debug.Log("starting executing button script");
+        
     }
 	
 	// Update is called once per frame
@@ -28,10 +30,13 @@ public class Button : MonoBehaviour {
                 SceneManager.LoadScene("CircuitA Options");
                 break;
             case 3:
-                SceneManager.LoadScene("CircuitA Strength V2");
+                SceneManager.LoadScene("CircuitA Strength");
                 break;
             case 4:
-                SceneManager.LoadScene("CircuitA Strength");
+                SceneManager.LoadScene("CircuitA Strength V2");
+                break;
+            case 5:
+                SceneManager.LoadScene("CircuitA Texture");
                 break;
         }           
     }
@@ -50,6 +55,9 @@ public class Button : MonoBehaviour {
                 SceneManager.LoadScene("CircuitA Options");
                 break;
             case 3:
+                SceneManager.LoadScene("CircuitA Strength");
+                break;
+            case 4:
                 SceneManager.LoadScene("CircuitA Strength V2");
                 break;
         }

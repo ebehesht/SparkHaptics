@@ -63,13 +63,15 @@ public class TouchEvents : MonoBehaviour {
                 }
                 else
                 {
-                    haptic.SetEnabled(false);
+                    haptic.DeactivateHaptic();
+                    //haptic.SetEnabled(false);
                     Debug.Log("ERROR");
                 }
             }
             else
             {
-                haptic.SetEnabled(false);
+                haptic.DeactivateHaptic();
+                //haptic.SetEnabled(false);
                 Debug.Log("moving out of the outline!");
             }
             touchPosWorldPrev = touchPosWorld;
@@ -78,7 +80,8 @@ public class TouchEvents : MonoBehaviour {
         // TOUCH END //
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            haptic.SetEnabled(false);
+            haptic.DeactivateHaptic();
+            //haptic.SetEnabled(false);
             Debug.Log("touch end circuit outline");
 
         }
@@ -89,15 +92,16 @@ public class TouchEvents : MonoBehaviour {
 
         if (Moving(touchPosWorldPrev, touchPosWorld, dir))
         {
-            haptic.SetEnabled(true);
-            haptic.UpdateHaptics(HapticSquare.HapticType.TEST);
+            haptic.ActivateHaptic();
+            //haptic.SetEnabled(true);
+            //haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
             Debug.Log("moving " + dir);
         }
         else
         {
-            //haptic.DeactivateHaptic();
-            haptic.SetEnabled(true);
-            haptic.UpdateHaptics(HapticSquare.HapticType.NOISELOW);
+            haptic.DeactivateHaptic();
+            //haptic.SetEnabled(true);
+            //haptic.UpdateHaptics(HapticSquare.HapticType.DOTS);
             Debug.Log("moving opposite direction!");
         }
 
