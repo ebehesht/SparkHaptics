@@ -92,14 +92,15 @@ public class TouchEvents : MonoBehaviour {
 
         if (Moving(touchPosWorldPrev, touchPosWorld, dir))
         {
-            haptic.ActivateHaptic();
+            if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
             //haptic.SetEnabled(true);
             //haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
             Debug.Log("moving " + dir);
         }
         else
         {
-            haptic.DeactivateHaptic();
+            if (!GlobalVariables.formative) haptic.DeactivateHaptic();
+            else if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
             //haptic.SetEnabled(true);
             //haptic.UpdateHaptics(HapticSquare.HapticType.DOTS);
             Debug.Log("moving opposite direction!");

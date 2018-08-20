@@ -4,20 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour {
-
+public class Button : MonoBehaviour
+{
+    
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         Debug.Log("starting executing button script");
-        
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void NextScene()
     {
@@ -38,7 +41,7 @@ public class Button : MonoBehaviour {
             case 5:
                 SceneManager.LoadScene("CircuitA Texture");
                 break;
-        }           
+        }
     }
 
     public void PrevScene()
@@ -62,5 +65,42 @@ public class Button : MonoBehaviour {
                 break;
         }
     }
+
+    public void NextPage(string thisPage)
+    {
+        //Debug.Log(GlobalVariables.thisCircuit);
+        
+
+
+        if (thisPage == "question")
+        {
+            SceneManager.LoadScene("Task Explore");
+        }
+        else
+        {
+            GlobalVariables.thisTask += 1;
+            SceneManager.LoadScene("Task Question");
+        }
+
+    }
+
+    public void PrevPage(string thisPage)
+    {
+        //Debug.Log(GlobalVariables.thisCircuit);
+
+
+
+        if (thisPage == "question")
+        {
+            GlobalVariables.thisTask -= 1;
+            SceneManager.LoadScene("Task Explore");
+        }
+        else
+        {            
+            SceneManager.LoadScene("Task Question");
+        }
+
+    }
+
 
 }

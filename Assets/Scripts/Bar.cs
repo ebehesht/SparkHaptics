@@ -33,12 +33,12 @@ public class Bar : MonoBehaviour {
         else if (this.name == "barE")
         {
             haptic = GameObject.Find("HapticSquareE").GetComponent<HapticSquare>();
-            haptic.UpdateHaptics(HapticSquare.HapticType.BAR12);
+            haptic.UpdateHaptics(HapticSquare.HapticType.BAR13);
         }
         else if (this.name == "barF")
         {
             haptic = GameObject.Find("HapticSquareF").GetComponent<HapticSquare>();
-            haptic.UpdateHaptics(HapticSquare.HapticType.BAR13);
+            haptic.UpdateHaptics(HapticSquare.HapticType.BAR33);
         }
     }
 	

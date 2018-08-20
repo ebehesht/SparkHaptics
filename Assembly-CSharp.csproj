@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Others\HapticSetting.cs" />
     <Compile Include="Assets\Scripts\Others\InsideComponent.cs" />
     <Compile Include="Assets\Scripts\Others\TouchEventsVoltage.cs" />
+    <Compile Include="Assets\Scripts\TaskQuestion.cs" />
     <Compile Include="Assets\Scripts\TouchEvents.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ebe215/Documents/GitHub/SparkHaptics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

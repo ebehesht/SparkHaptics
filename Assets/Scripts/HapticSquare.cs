@@ -43,6 +43,10 @@ public class HapticSquare : MonoBehaviour
         public static readonly string STRIPEMED = "Textures/options/stripe-medium-circuit";
         public static readonly string STRIPELOW = "Textures/options/stripe-soft-circuit";
 
+        public static readonly string STRIPEHIGH2 = "Textures/options/stripe-d1mm-circuit";
+        public static readonly string STRIPEMED2 = "Textures/options/stripe-d4mm-circuit";
+        public static readonly string STRIPELOW2 = "Textures/options/stripe-d8mm-circuit";
+
         public static readonly string DOTS = "Textures/options/dots-circuit";
 
         public static readonly string BAR01 = "Textures/bars/stripe-density1mm";
@@ -53,6 +57,12 @@ public class HapticSquare : MonoBehaviour
         public static readonly string BAR11 = "Textures/bars/stripe-pulse";
         public static readonly string BAR12 = "Textures/bars/stripe-pulse-blur2";
         public static readonly string BAR13 = "Textures/bars/stripe-pulse-blur4";
+
+        public static readonly string BAR21 = "Textures/bars/stripe-pulse";
+        public static readonly string BAR22 = "Textures/bars/lines-blurW10";
+        public static readonly string BAR23 = "Textures/bars/lines-blurW20";
+
+        public static readonly string BAR33 = "Textures/bars/lines-blursoft";
 
         // raw versions
         /*
