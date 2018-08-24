@@ -3,25 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Text;
+using System;
 
 public class Button : MonoBehaviour
 {
     
-
     // Use this for initialization
     void Start()
     {
 
-        Debug.Log("starting executing button script");
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // formative version
     public void NextScene()
     {
         GlobalVariables.thisCircuit += 1;
@@ -44,6 +38,7 @@ public class Button : MonoBehaviour
         }
     }
 
+    //formative version
     public void PrevScene()
     {
         GlobalVariables.thisCircuit -= 1;
@@ -66,6 +61,34 @@ public class Button : MonoBehaviour
         }
     }
 
+    //main version
+    public void StartSession()
+    {
+        //Get the family ID from the input field
+        //InputField txt_Input = GameObject.Find("StartInputField").GetComponent<InputField>();
+        //if (txt_Input != null) GlobalVariables.familyID = txt_Input.text;
+
+        //Create a new log file
+        PlayerLog thisPlayerLog = GameObject.Find("EventSystem").GetComponent<PlayerLog>();
+        thisPlayerLog.CreateLogFile();
+
+        //GlobalVariables.interactionLog = new StringBuilder(DateTime.Now.ToString("yyyy-MM-dd h:mm tt") + " Start logging\n");
+        //GlobalVariables.interactionLog.AppendLine("Family:" + GlobalVariables.familyID);
+
+
+        //Load the first task
+        SceneManager.LoadScene("Task Question");
+    }
+
+    public void EndSession()
+    {
+        //Create a new log file
+        PlayerLog thisPlayerLog = GameObject.Find("EventSystem").GetComponent<PlayerLog>();
+        thisPlayerLog.EndLog();
+        SceneManager.LoadScene("End");
+    }
+
+    //main version
     public void NextPage(string thisPage)
     {
         //Debug.Log(GlobalVariables.thisCircuit);
@@ -84,6 +107,7 @@ public class Button : MonoBehaviour
 
     }
 
+    //main version
     public void PrevPage(string thisPage)
     {
         //Debug.Log(GlobalVariables.thisCircuit);

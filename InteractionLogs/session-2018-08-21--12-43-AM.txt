@@ -1,0 +1,323 @@
+***** Interaction Log File *****
+Date and time: 8/21/2018 12:43:51 AM
+Condition: Haptics
+t = 2.420171, 2.420171, Start Task 1
+=============================================
+t = 3.599837, Touch Down, x = 0.9952418, y = -4.113667
+t = 3.633896, Show Hint
+t = 3.633896, Touch End, x = 0.8625435, y = -4.113667
+t = 4.537674, Touch Down, x = 0.5307959, y = -3.815095
+t = 4.667897, Hide Hint
+t = 4.667897, Touch End, x = 0.8625435, y = -4.113667
+t = 5.732702, Touch Down, x = 5.606531, y = -4.146842
+t = 5.831892, Touch End, x = 0.8625435, y = -4.113667
+t = 7.110739, 7.110739, Start Task 2
+=============================================
+t = 7.926558, Touch Down, x = 3.649221, y = -4.180017
+t = 8.172491, Touch End, x = 0, y = 0
+t = 9.202528, 9.202528, Start Task 2
+=============================================
+t = 10.05086, Touch Down, x = -4.113667, y = -1.194291
+t = 10.1172, Touch Move counter-clockwise right, x = -3.947794, y = -1.028417
+t = 10.13375, Touch Move counter-clockwise right, x = -3.84827, y = -0.9620675
+t = 10.15026, Touch Move counter-clockwise right, x = -3.649221, y = -0.895718
+t = 10.16686, Touch Move counter-clockwise right, x = -3.450173, y = -0.8293684
+t = 10.1834, Touch Move counter-clockwise right, x = -3.21795, y = -0.7630189
+t = 10.19996, Touch Move counter-clockwise right, x = -2.919377, y = -0.6966695
+t = 10.21758, Touch Move counter-clockwise right, x = -2.58763, y = -0.6966695
+t = 10.24743, Touch Move counter-clockwise right, x = -1.990484, y = -0.6966695
+t = 10.27267, Touch Move counter-clockwise right, x = -1.293815, y = -0.6634948
+t = 10.29765, Touch Move counter-clockwise right, x = -0.5971451, y = -0.6634948
+t = 10.32272, Touch Move counter-clockwise right, x = 0.06634917, y = -0.6303201
+t = 10.35483, Touch Move counter-clockwise right, x = 0.5971451, y = -0.6303201
+t = 10.37799, Touch Move counter-clockwise right, x = 0.9952418, y = -0.5639707
+t = 10.40338, Touch Move counter-clockwise right, x = 1.227466, y = -0.4976209
+t = 10.42773, Touch Move counter-clockwise right, x = 1.326989, y = -0.4644462
+t = 10.46613, Touch Move clockwise right, x = 1.326989, y = -0.4312715
+t = 10.48967, Touch Move clockwise right, x = 1.293815, y = -0.4312715
+t = 10.5158, Touch Move clockwise right, x = 0.9620672, y = -0.4312715
+t = 10.53763, Touch Move clockwise right, x = 0.6303197, y = -0.4312715
+t = 10.57301, Touch Move clockwise right, x = -0.0663496, y = -0.4312715
+t = 10.60016, Touch Move clockwise right, x = -0.5639705, y = -0.4312715
+t = 10.62434, Touch Move clockwise right, x = -1.061592, y = -0.4644462
+t = 10.64926, Touch Move clockwise right, x = -1.592387, y = -0.5639707
+t = 10.67355, Touch Move clockwise right, x = -2.090009, y = -0.6303201
+t = 10.69538, Touch Move clockwise right, x = -2.421756, y = -0.6966695
+t = 10.71209, Touch Move clockwise right, x = -2.720328, y = -0.7630189
+t = 10.73267, Touch Move clockwise right, x = -3.018901, y = -0.7961936
+t = 10.74972, Touch Move clockwise right, x = -3.251124, y = -0.8293684
+t = 10.76629, Touch Move clockwise right, x = -3.516522, y = -0.8293684
+t = 10.78286, Touch Move clockwise right, x = -3.682396, y = -0.8293684
+t = 10.79942, Touch Move clockwise right, x = -3.815095, y = -0.7961936
+t = 10.81599, Touch Move clockwise right, x = -3.84827, y = -0.7961936
+t = 10.83256, Touch Move clockwise right, x = -3.914619, y = -0.7630189
+t = 10.84912, Touch Move clockwise right, x = -3.947794, y = -0.7630189
+t = 10.91585, Touch Move counter-clockwise right, x = -3.682396, y = -0.7630189
+t = 10.93794, Touch Move counter-clockwise right, x = -3.018901, y = -0.8293684
+t = 10.9599, Touch Move counter-clockwise right, x = -2.58763, y = -0.8625433
+t = 10.99353, Touch Move counter-clockwise right, x = -1.725087, y = -0.9288928
+t = 11.01902, Touch Move counter-clockwise right, x = -1.061592, y = -0.9288928
+t = 11.04446, Touch Move counter-clockwise right, x = -0.3980967, y = -0.895718
+t = 11.07015, Touch Move counter-clockwise right, x = 0.1990484, y = -0.8293684
+t = 11.09699, Touch Move counter-clockwise right, x = 0.6634951, y = -0.7630189
+t = 11.12031, Touch Move counter-clockwise right, x = 0.9288927, y = -0.7630189
+t = 11.14477, Touch Move counter-clockwise right, x = 1.19429, y = -0.7298442
+t = 11.16968, Touch Move counter-clockwise right, x = 1.326989, y = -0.7298442
+t = 11.19941, Touch Move counter-clockwise right, x = 1.393339, y = -0.7298442
+t = 11.28955, Touch Move clockwise right, x = 0.9952418, y = -0.6966695
+t = 11.3061, Touch Move clockwise right, x = 0.6634951, y = -0.6303201
+t = 11.32267, Touch Move clockwise right, x = 0.298573, y = -0.6303201
+t = 11.33924, Touch Move clockwise right, x = -0.09952419, y = -0.5971454
+t = 11.35581, Touch Move clockwise right, x = -0.4644463, y = -0.5971454
+t = 11.37237, Touch Move clockwise right, x = -0.8293685, y = -0.5971454
+t = 11.39084, Touch Move clockwise right, x = -1.194291, y = -0.5971454
+t = 11.40757, Touch Move clockwise right, x = -1.526038, y = -0.6303201
+t = 11.42458, Touch Move clockwise right, x = -1.857785, y = -0.6303201
+t = 11.44125, Touch Move clockwise right, x = -2.123183, y = -0.6303201
+t = 11.45771, Touch Move clockwise right, x = -2.421756, y = -0.6634948
+t = 11.47434, Touch Move clockwise right, x = -2.52128, y = -0.6634948
+t = 11.49085, Touch Move clockwise right, x = -2.786678, y = -0.6634948
+t = 11.50741, Touch Move clockwise right, x = -2.985726, y = -0.6303201
+t = 11.52398, Touch Move clockwise right, x = -3.184775, y = -0.6303201
+t = 11.54055, Touch Move clockwise right, x = -3.317474, y = -0.6303201
+t = 11.55711, Touch Move clockwise right, x = -3.383823, y = -0.5971454
+t = 11.57368, Touch Move clockwise right, x = -3.450173, y = -0.5971454
+t = 11.5981, Touch Move clockwise right, x = -3.516522, y = -0.5971454
+t = 11.69861, Touch Move counter-clockwise right, x = -3.1516, y = -0.6634948
+t = 11.71498, Touch Move counter-clockwise right, x = -2.720328, y = -0.7298442
+t = 11.73438, Touch Move counter-clockwise right, x = -2.355407, y = -0.7630189
+t = 11.75717, Touch Move counter-clockwise right, x = -1.758261, y = -0.7961936
+t = 11.77479, Touch Move counter-clockwise right, x = -1.360164, y = -0.7961936
+t = 11.79701, Touch Move counter-clockwise right, x = -0.9288927, y = -0.7961936
+t = 11.81809, Touch Move counter-clockwise right, x = -0.265398, y = -0.7630189
+t = 11.83603, Touch Move counter-clockwise right, x = 0.1658738, y = -0.7630189
+t = 11.85372, Touch Move counter-clockwise right, x = 0.5971451, y = -0.7298442
+t = 11.871, Touch Move counter-clockwise right, x = 0.9620672, y = -0.7298442
+t = 11.88924, Touch Move counter-clockwise right, x = 1.293815, y = -0.7298442
+t = 11.90843, Touch Move counter-clockwise right, x = 1.592388, y = -0.7298442
+t = 11.92749, Touch Move counter-clockwise right, x = 1.791436, y = -0.7630189
+t = 11.94688, Touch Move counter-clockwise right, x = 1.990484, y = -0.7630189
+t = 11.96794, Touch Move counter-clockwise right, x = 2.090008, y = -0.7630189
+t = 11.98724, Touch Move counter-clockwise right, x = 2.123184, y = -0.7630189
+t = 12.0111, Touch Move counter-clockwise right, x = 2.156358, y = -0.7961936
+t = 12.07921, Touch Move clockwise right, x = 1.857785, y = -0.8293684
+t = 12.10037, Touch Move clockwise right, x = 1.293815, y = -0.8625433
+t = 12.12076, Touch Move clockwise right, x = 0.8957181, y = -0.8625433
+t = 12.15412, Touch Move clockwise right, x = 0.06634917, y = -0.895718
+t = 12.17356, Touch Move clockwise right, x = -0.3649221, y = -0.895718
+t = 12.19393, Touch Move clockwise right, x = -0.7298443, y = -0.895718
+t = 12.22403, Touch Move clockwise right, x = -1.492863, y = -0.9620675
+t = 12.25023, Touch Move clockwise right, x = -2.023659, y = -0.9952422
+t = 12.27657, Touch Move clockwise right, x = -2.52128, y = -1.028417
+t = 12.29945, Touch Move clockwise right, x = -2.786678, y = -1.028417
+t = 12.32022, Touch Move clockwise right, x = -3.1516, y = -1.028417
+t = 12.34225, Touch Move clockwise right, x = -3.317474, y = -0.9952422
+t = 12.36291, Touch Move clockwise right, x = -3.516522, y = -0.9620675
+t = 12.38299, Touch Move clockwise right, x = -3.582872, y = -0.9288928
+t = 12.40241, Touch Move clockwise right, x = -3.649221, y = -0.895718
+t = 12.50685, Touch Move counter-clockwise right, x = -3.184775, y = -0.9288928
+t = 12.5324, Touch Move counter-clockwise right, x = -2.653979, y = -0.9620675
+t = 12.5578, Touch Move counter-clockwise right, x = -2.090009, y = -1.028417
+t = 12.5845, Touch Move counter-clockwise right, x = -1.492863, y = -1.028417
+t = 12.60359, Touch Move counter-clockwise right, x = -1.094766, y = -1.061592
+t = 12.63241, Touch Move counter-clockwise right, x = -0.5307959, y = -1.028417
+t = 12.65597, Touch Move counter-clockwise right, x = 0.06634917, y = -1.028417
+t = 12.68309, Touch Move counter-clockwise right, x = 0.6303197, y = -0.9620675
+t = 12.70817, Touch Move counter-clockwise right, x = 1.19429, y = -0.9620675
+t = 12.73607, Touch Move counter-clockwise right, x = 1.658737, y = -0.9620675
+t = 12.80599, Touch Move counter-clockwise right, x = 2.786678, y = -1.028417
+t = 12.90599, Touch Move counter-clockwise right, x = 4.080493, y = -1.094766
+t = 12.92332, Touch Move counter-clockwise right, x = 4.246367, y = -1.094766
+t = 12.93999, Touch Move counter-clockwise right, x = 4.345891, y = -1.061592
+t = 12.95714, Touch Move counter-clockwise right, x = 4.511764, y = -1.028417
+t = 12.97346, Touch Move counter-clockwise right, x = 4.677638, y = -0.9952422
+t = 12.99003, Touch Move counter-clockwise right, x = 4.810337, y = -0.9288928
+t = 13.00659, Touch Move counter-clockwise right, x = 4.909862, y = -0.895718
+t = 13.02774, Touch Move counter-clockwise right, x = 5.009386, y = -0.8293684
+t = 13.04729, Touch Move counter-clockwise right, x = 5.142085, y = -0.7630189
+t = 13.06385, Touch Move counter-clockwise right, x = 5.175259, y = -0.7298442
+t = 13.08086, Touch Move counter-clockwise right, x = 5.241609, y = -0.6303201
+t = 13.09741, Touch Move counter-clockwise right, x = 5.307959, y = -0.4976209
+t = 13.11355, Touch Move clockwise right, x = 5.307959, y = -0.3980968
+t = 13.13012, Touch Move clockwise right, x = 5.307959, y = -0.265398
+t = 13.15431, Touch Move counter-clockwise up, x = 5.274784, y = 0.09952412
+t = 13.18006, Touch Move counter-clockwise up, x = 5.208434, y = 0.4976213
+t = 13.20936, Touch Move counter-clockwise up, x = 5.142085, y = 0.8957177
+t = 13.25178, Touch Move counter-clockwise up, x = 5.04256, y = 1.625562
+t = 13.27947, Touch Move counter-clockwise up, x = 5.04256, y = 1.95731
+t = 13.30594, Touch Move counter-clockwise up, x = 4.976211, y = 2.189533
+t = 13.33242, Touch Move counter-clockwise up, x = 4.976211, y = 2.421756
+t = 13.35783, Touch Move counter-clockwise up, x = 4.909862, y = 2.554455
+t = 13.38271, Touch Move counter-clockwise up, x = 4.843512, y = 2.620805
+t = 13.41, Touch Move counter-clockwise up, x = 4.710814, y = 2.687154
+t = 13.43774, Touch Move counter-clockwise left, x = 4.511764, y = 2.753503
+t = 13.45431, Touch Move counter-clockwise left, x = 4.312716, y = 2.753503
+t = 13.4709, Touch Move counter-clockwise left, x = 4.047318, y = 2.753503
+t = 13.48744, Touch Move counter-clockwise left, x = 3.78192, y = 2.753503
+t = 13.50401, Touch Move counter-clockwise left, x = 3.483348, y = 2.687154
+t = 13.52112, Touch Move counter-clockwise left, x = 3.217949, y = 2.687154
+t = 13.53769, Touch Move counter-clockwise left, x = 3.085251, y = 2.687154
+t = 13.55426, Touch Move counter-clockwise left, x = 2.853027, y = 2.653979
+t = 13.57082, Touch Move counter-clockwise left, x = 2.58763, y = 2.620805
+t = 13.58739, Touch Move counter-clockwise left, x = 2.388581, y = 2.58763
+t = 13.60396, Touch Move counter-clockwise left, x = 2.189533, y = 2.554455
+t = 13.62052, Touch Move counter-clockwise left, x = 1.990484, y = 2.554455
+t = 13.63828, Touch Move counter-clockwise left, x = 1.857785, y = 2.554455
+t = 13.65485, Touch Move counter-clockwise left, x = 1.725086, y = 2.52128
+t = 13.67245, Touch Move counter-clockwise left, x = 1.592388, y = 2.488106
+t = 13.69287, Touch Move counter-clockwise left, x = 1.526038, y = 2.488106
+t = 13.71242, Touch Move counter-clockwise left, x = 1.426514, y = 2.454931
+t = 13.73873, Touch Move counter-clockwise left, x = 1.326989, y = 2.421756
+t = 13.75955, Touch Move counter-clockwise left, x = 1.26064, y = 2.421756
+t = 13.77621, Touch Move clockwise left, x = 1.26064, y = 2.388582
+t = 13.79276, Touch Move counter-clockwise left, x = 1.19429, y = 2.388582
+t = 13.81014, Touch Move clockwise left, x = 1.19429, y = 2.355406
+t = 14.19573, Touch Move counter-clockwise left, x = -1.028417, y = 2.488106
+t = 14.21568, Touch Move counter-clockwise left, x = -1.227465, y = 2.554455
+t = 14.23592, Touch Move counter-clockwise left, x = -1.526038, y = 2.58763
+t = 14.25257, Touch Move counter-clockwise left, x = -1.691912, y = 2.58763
+t = 14.27263, Touch Move counter-clockwise left, x = -1.89096, y = 2.58763
+t = 14.29127, Touch Move counter-clockwise left, x = -2.056834, y = 2.620805
+t = 14.30825, Touch Move counter-clockwise left, x = -2.255882, y = 2.58763
+t = 14.32482, Touch Move counter-clockwise left, x = -2.421756, y = 2.58763
+t = 14.34138, Touch Move counter-clockwise left, x = -2.58763, y = 2.554455
+t = 14.35795, Touch Move counter-clockwise left, x = -2.720328, y = 2.52128
+t = 14.37574, Touch Move counter-clockwise left, x = -2.853028, y = 2.488106
+t = 14.3924, Touch Move counter-clockwise left, x = -2.886202, y = 2.488106
+t = 14.40895, Touch Move counter-clockwise left, x = -2.952552, y = 2.421756
+t = 14.42599, Touch Move counter-clockwise left, x = -3.018901, y = 2.355406
+t = 14.44204, Touch Move counter-clockwise left, x = -3.052076, y = 2.322232
+t = 14.45857, Touch Move clockwise left, x = -3.052076, y = 2.222707
+t = 14.77402, Touch Move clockwise left, x = -1.658737, y = 2.388582
+t = 14.80241, Touch Move clockwise left, x = -1.161116, y = 2.687154
+t = 14.9305, Touch Move clockwise left, x = 1.492863, y = 2.919377
+t = 14.95434, Touch Move clockwise left, x = 2.090008, y = 2.819853
+t = 14.97782, Touch Move clockwise left, x = 2.720329, y = 2.720329
+t = 15.00369, Touch Move clockwise left, x = 3.284299, y = 2.620805
+t = 15.02225, Touch Move clockwise left, x = 3.649221, y = 2.58763
+t = 15.04059, Touch Move clockwise left, x = 3.980969, y = 2.554455
+t = 15.05779, Touch Move clockwise left, x = 4.312716, y = 2.454931
+t = 15.07987, Touch Move clockwise up, x = 4.644464, y = 2.322232
+t = 15.1029, Touch Move clockwise up, x = 4.777163, y = 2.222707
+t = 15.11947, Touch Move clockwise up, x = 4.909862, y = 2.156358
+t = 15.13614, Touch Move clockwise up, x = 5.04256, y = 2.056834
+t = 15.15292, Touch Move clockwise up, x = 5.10891, y = 1.924135
+t = 15.16965, Touch Move clockwise up, x = 5.175259, y = 1.824611
+t = 15.18654, Touch Move clockwise up, x = 5.208434, y = 1.691911
+t = 15.20402, Touch Move clockwise up, x = 5.241609, y = 1.625562
+t = 15.22145, Touch Move clockwise up, x = 5.241609, y = 1.492863
+t = 15.23892, Touch Move clockwise up, x = 5.208434, y = 1.360164
+t = 15.25551, Touch Move clockwise up, x = 5.175259, y = 1.194291
+t = 15.27267, Touch Move clockwise up, x = 5.175259, y = 1.094767
+t = 15.28929, Touch Move clockwise up, x = 5.142085, y = 1.028417
+t = 15.30973, Touch Move clockwise up, x = 5.04256, y = 0.8293684
+t = 15.32642, Touch Move clockwise up, x = 5.009386, y = 0.7961936
+t = 15.34493, Touch Move clockwise up, x = 4.909862, y = 0.6303201
+t = 15.36149, Touch Move clockwise up, x = 4.843512, y = 0.5971454
+t = 15.3791, Touch Move clockwise up, x = 4.677638, y = 0.4976213
+t = 15.39567, Touch Move clockwise up, x = 4.644464, y = 0.4312719
+t = 15.41265, Touch Move clockwise up, x = 4.511764, y = 0.3980971
+t = 15.64443, Touch Move clockwise right, x = 2.255882, y = -0.2985727
+t = 15.67471, Touch Move clockwise right, x = 1.791436, y = -0.4312715
+t = 15.71649, Touch Move clockwise right, x = 1.127941, y = -0.6303201
+t = 15.77078, Touch Move clockwise right, x = 0.4312713, y = -0.7961936
+t = 15.80183, Touch End, x = 0.4312713, y = -0.7961936
+t = 16.55241, Touch Down, x = 6.270026, y = -3.914619
+t = 16.70156, Touch End, x = 5.971453, y = -4.014143
+t = 17.51619, 17.51619, Start Task 3
+=============================================
+t = 18.24854, Touch Down, x = 0.3649221, y = -2.322232
+t = 18.45386, Clicked Circuit 2
+t = 18.45386, Touch End, x = 0, y = 0
+t = 19.37356, Touch Down, x = -2.853028, y = -2.421756
+t = 19.69061, Clicked Circuit 1
+t = 19.69061, Touch End, x = -2.985726, y = -2.421756
+t = 20.95372, Touch Down, x = 0.8625435, y = -2.156358
+t = 21.11568, Clicked Circuit 2
+t = 21.11568, Touch End, x = 0.6634951, y = -2.156358
+t = 21.52673, Touch Down, x = -2.189533, y = -2.52128
+t = 21.67616, Clicked Circuit 1
+t = 21.67616, Touch End, x = 0.6634951, y = -2.156358
+t = 22.2928, Touch Down, x = -2.123183, y = -1.227466
+t = 22.37556, Touch Move counter-clockwise right, x = -1.824611, y = -1.161116
+t = 22.39252, Touch Move counter-clockwise right, x = -1.26064, y = -0.9952422
+t = 22.41095, Touch Move counter-clockwise right, x = -0.8957181, y = -0.895718
+t = 22.42752, Touch Move counter-clockwise right, x = -0.5307959, y = -0.8293684
+t = 22.44622, Touch Move counter-clockwise right, x = -0.1326988, y = -0.7630189
+t = 22.4642, Touch Move counter-clockwise right, x = 0.3317476, y = -0.6966695
+t = 22.48076, Touch Move counter-clockwise right, x = 0.7630189, y = -0.6634948
+t = 22.49733, Touch Move counter-clockwise right, x = 1.227466, y = -0.5971454
+t = 22.51874, Touch Move counter-clockwise right, x = 1.691912, y = -0.5639707
+t = 22.53542, Touch Move counter-clockwise right, x = 2.123184, y = -0.4976209
+t = 22.55402, Touch Move counter-clockwise right, x = 2.554455, y = -0.4976209
+t = 22.5706, Touch Move counter-clockwise right, x = 2.919377, y = -0.4312715
+t = 22.58716, Touch Move counter-clockwise right, x = 3.317474, y = -0.4312715
+t = 22.60373, Touch Move counter-clockwise right, x = 3.649221, y = -0.3649221
+t = 22.62036, Touch Move counter-clockwise right, x = 3.914619, y = -0.3649221
+t = 22.63692, Touch Move counter-clockwise right, x = 4.047318, y = -0.3649221
+t = 22.65349, Touch Move counter-clockwise right, x = 4.113667, y = -0.3317474
+t = 22.67028, Touch Move counter-clockwise right, x = 4.146842, y = -0.3317474
+t = 22.68688, Touch Move counter-clockwise right, x = 4.180017, y = -0.3317474
+t = 22.72002, Touch Move clockwise right, x = 4.146842, y = -0.3317474
+t = 22.73658, Touch Move clockwise right, x = 3.715571, y = -0.3317474
+t = 22.75315, Touch Move clockwise right, x = 3.118426, y = -0.2985727
+t = 22.77007, Touch Move clockwise right, x = 2.421756, y = -0.2985727
+t = 22.78666, Touch Move clockwise right, x = 1.725086, y = -0.2985727
+t = 22.80346, Touch Move clockwise right, x = 1.061592, y = -0.265398
+t = 22.82165, Touch Move clockwise right, x = 0.3980967, y = -0.265398
+t = 22.83978, Touch Move clockwise right, x = -0.1658738, y = -0.265398
+t = 22.85634, Touch Move clockwise right, x = -0.6966697, y = -0.2985727
+t = 22.87492, Touch Move clockwise right, x = -1.194291, y = -0.3317474
+t = 22.89189, Touch Move clockwise right, x = -1.559213, y = -0.3649221
+t = 22.90846, Touch Move clockwise right, x = -1.725087, y = -0.3649221
+t = 22.92504, Touch Move clockwise right, x = -1.990484, y = -0.3980968
+t = 22.9416, Touch Move clockwise right, x = -2.189533, y = -0.3980968
+t = 22.95881, Touch Move clockwise right, x = -2.289057, y = -0.3980968
+t = 22.97537, Touch Move clockwise right, x = -2.355407, y = -0.3980968
+t = 23.04164, Touch Move counter-clockwise right, x = -1.791436, y = -0.3649221
+t = 23.05821, Touch Move counter-clockwise right, x = -1.161116, y = -0.2985727
+t = 23.0764, Touch Move counter-clockwise right, x = -0.09952419, y = -0.2985727
+t = 23.09953, Touch Move counter-clockwise right, x = 0.6966697, y = -0.2985727
+t = 23.11649, Touch Move counter-clockwise right, x = 1.526038, y = -0.3317474
+t = 23.13266, Touch Move counter-clockwise right, x = 2.322232, y = -0.3317474
+t = 23.14958, Touch Move counter-clockwise right, x = 3.118426, y = -0.2985727
+t = 23.1658, Touch Move counter-clockwise right, x = 3.84827, y = -0.265398
+t = 23.2155, Touch Move counter-clockwise up, x = 4.909862, y = -0.1326988
+t = 23.23207, Touch Move counter-clockwise up, x = 5.075735, y = -0.09952412
+t = 23.26126, Touch Move counter-clockwise up, x = 5.175259, y = -0.06634942
+t = 23.3854, Touch Move clockwise right, x = 1.393339, y = -0.4312715
+t = 23.41173, Touch Move clockwise right, x = -0.1326988, y = -0.6966695
+t = 23.43377, Touch Move clockwise right, x = -0.5639705, y = -0.6966695
+t = 23.47474, Touch Move clockwise right, x = -1.061592, y = -0.6966695
+t = 23.50194, Touch End, x = -1.061592, y = -0.6966695
+t = 23.77226, Touch Down, x = 1.625562, y = -4.279541
+t = 23.85507, Touch End, x = -1.061592, y = -0.6966695
+t = 24.36436, Touch Down, x = 0.4644468, y = -4.279541
+t = 24.51211, Show Hint
+t = 24.51211, Touch End, x = -1.061592, y = -0.6966695
+t = 24.99159, Touch Down, x = 0.7630189, y = -4.41224
+t = 25.12725, Hide Hint
+t = 25.12725, Touch End, x = -1.061592, y = -0.6966695
+t = 25.66178, Touch Down, x = 5.507007, y = -4.213192
+t = 25.77798, Touch End, x = -1.061592, y = -0.6966695
+t = 26.47748, 26.47748, Start Task 4
+=============================================
+t = 27.07753, Touch Down, x = 0.7298443, y = -3.815095
+t = 27.17679, Show Hint
+t = 27.17679, Touch End, x = 0, y = 0
+t = 27.79579, Touch Down, x = 0.3980967, y = -4.445415
+t = 27.9587, Hide Hint
+t = 27.9587, Touch End, x = 0, y = 0
+t = 28.50221, Touch Down, x = 3.450173, y = -2.189533
+t = 28.70116, Clicked Circuit 3
+t = 28.70116, Touch End, x = 0, y = 0
+t = 29.28832, Touch Down, x = 1.061592, y = -2.421756
+t = 29.50501, Clicked Circuit 2
+t = 29.50501, Touch End, x = 0.8957181, y = -2.488105
+t = 30.04379, Touch Down, x = -2.289057, y = -2.488105
+t = 30.22596, Clicked Circuit 1
+t = 30.22596, Touch End, x = -2.454931, y = -2.488105
+t = 30.87162, Touch Down, x = 3.649221, y = -3.980969
+t = 31.07189, Touch End, x = -2.454931, y = -2.488105
+t = 33.1327, 33.1327, Start Task 4
+=============================================

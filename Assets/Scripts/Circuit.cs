@@ -1,15 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public static class GlobalVariables
-{
-    public static int thisCircuit = 1; //not really using it
-    public static int thisTask = 1;
-    public static int RGlobal = 1;
-    public static bool formative = false; // this is for the code for the formative study
-    public static bool hapticOn = true;
-}
+using UnityEngine.UI;
 
 public class Circuit : MonoBehaviour {
 
@@ -25,85 +17,129 @@ public class Circuit : MonoBehaviour {
     private Sprite taskSprite;
 
     GameObject nextButton;
+    GameObject finishButton;
+
     GameObject buttonC1;
     GameObject buttonC2;
     GameObject buttonC3;
+    GameObject sliderR;
 
     SpriteRenderer spriteR;
+
+    PlayerLog thisPlayerLog;
+    
     // Use this for initialization
     void Start () {
 
         if (GlobalVariables.formative) StartFormative();
-        else
+        else StartTasks();
+
+    }
+
+
+    private void StartTasks()
+    {
+        thisPlayerLog = GameObject.Find("EventSystem").GetComponent<PlayerLog>();
+
+        hint = GameObject.Find("Hint");
+        hint.SetActive(false);
+
+        Debug.Log("this circuit: " + GlobalVariables.thisTask);
+        haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
+
+        nextButton = GameObject.Find("Next Button");
+        finishButton = GameObject.Find("Finish Button");
+
+        buttonC1 = GameObject.Find("Circuit1 Button");
+        buttonC2 = GameObject.Find("Circuit2 Button");
+        buttonC3 = GameObject.Find("Circuit3 Button");
+
+        sliderR = GameObject.Find("SliderR");
+
+        finishButton.SetActive(false);
+        buttonC1.SetActive(false);
+        buttonC2.SetActive(false);
+        buttonC3.SetActive(false);
+        sliderR.SetActive(false);
+
+        switch (GlobalVariables.thisTask)
         {
-            hint = GameObject.Find("Hint");
-            hint.SetActive(false);
+            case 1:
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1b");
+                taskSprite = Resources.Load<Sprite>("Sprites/Buttons/task1");
+                currentHapticType = HapticSquare.HapticType.STRIPEHIGH2;
+                haptic.UpdateHaptics(currentHapticType);
+                thisPlayerLog.AddEvent("=============================================\n"
+                    + "t = " + Time.time.ToString() + ", Start Task 1"
+                    + "\n=============================================");
+                break;
+            case 2:
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit2b");
+                taskSprite = Resources.Load<Sprite>("Sprites/Buttons/task2");
+                currentHapticType = HapticSquare.HapticType.STRIPEMED2;
+                haptic.UpdateHaptics(currentHapticType);
+                thisPlayerLog.AddEvent("=============================================\n"
+                    + "t = " + Time.time.ToString() + ", Start Task 2"
+                    + "\n=============================================");
+                break;
+            case 3:
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1b");
+                taskSprite = Resources.Load<Sprite>("Sprites/Buttons/task3");
+                currentHapticType = HapticSquare.HapticType.STRIPEHIGH2;
+                haptic.UpdateHaptics(currentHapticType);
 
-            Debug.Log("this circuit: " + GlobalVariables.thisTask);
-            haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
+                //activate C1 and C2 buttons
+                buttonC1.SetActive(true);
+                buttonC2.SetActive(true);
 
-            nextButton = GameObject.Find("Next Button");
-            buttonC1 = GameObject.Find("Circuit1 Button");
-            buttonC2 = GameObject.Find("Circuit2 Button");
-            buttonC3 = GameObject.Find("Circuit3 Button");
+                thisPlayerLog.AddEvent("=============================================\n"
+                    + "t = " + Time.time.ToString() + ", Start Task 3"
+                    + "\n=============================================");
+                break;
+            case 4:
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit4bR1");
+                taskSprite = Resources.Load<Sprite>("Sprites/Buttons/task4");
+                currentHapticType = HapticSquare.HapticType.STRIPEMED2;
+                haptic.UpdateHaptics(currentHapticType);
 
-            buttonC1.SetActive(false);
-            buttonC2.SetActive(false);
-            buttonC3.SetActive(false);
+                //activate slider
+                sliderR.SetActive(true);
+ 
+                thisPlayerLog.AddEvent("=============================================\n"
+                    + "t = " + Time.time.ToString() + ", Start Task 4"
+                    + "\n=============================================");                
+                break;
+            case 5:
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1b");
+                taskSprite = Resources.Load<Sprite>("Sprites/Buttons/task5");
+                currentHapticType = HapticSquare.HapticType.STRIPEHIGH2;
+                haptic.UpdateHaptics(currentHapticType);
 
-            switch (GlobalVariables.thisTask)
-            {
-                case 1:
-                    circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1"); 
-                    taskSprite = Resources.Load<Sprite>("Sprites/Buttons/taskA");
-                    currentHapticType = HapticSquare.HapticType.STRIPEHIGH2;
-                    haptic.UpdateHaptics(currentHapticType);
-                    break;
-                case 2:
-                    circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit2");
-                    taskSprite = Resources.Load<Sprite>("Sprites/Buttons/taskB");
-                    currentHapticType = HapticSquare.HapticType.STRIPEMED2;
-                    haptic.UpdateHaptics(currentHapticType);
-                    break;
-                case 3:
-                    circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1");
-                    taskSprite = Resources.Load<Sprite>("Sprites/Buttons/taskC");
-                    currentHapticType = HapticSquare.HapticType.STRIPEHIGH2;
-                    haptic.UpdateHaptics(currentHapticType);
+                //activate C1 and C2 buttons
+                buttonC1.SetActive(true);
+                buttonC2.SetActive(true);
+                buttonC3.SetActive(true);
 
-                    //activate C1 and C2 buttons
-                    buttonC1.SetActive(true);
-                    buttonC2.SetActive(true);
+                //deactivate the back button
+                nextButton.SetActive(false);
+                finishButton.SetActive(true);
+                
 
-                    break;
-                case 4:
-                    circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1");
-                    taskSprite = Resources.Load<Sprite>("Sprites/Buttons/taskD");
-                    currentHapticType = HapticSquare.HapticType.STRIPEHIGH2;
-                    haptic.UpdateHaptics(currentHapticType);
-
-                    //activate C1 and C2 buttons
-                    buttonC1.SetActive(true);
-                    buttonC2.SetActive(true);
-                    buttonC3.SetActive(true);
-
-                    //deactivate the back button
-                    nextButton.SetActive(false);
-                    break;
-            }
-
-            haptic.DeactivateHaptic();
-
-            GameObject circuit = GameObject.Find("Circuit");
-            spriteR = circuit.GetComponent<SpriteRenderer>();
-            spriteR.sprite = circuitSprite1;
-
-            GameObject taskLabel = GameObject.Find("Task Label");
-            spriteR = taskLabel.GetComponent<SpriteRenderer>();
-            spriteR.sprite = taskSprite;
-
+                thisPlayerLog.AddEvent("=============================================\n"
+                    + "t = " + Time.time.ToString() + ", Start Task 5"
+                    + "\n=============================================");
+                break;
         }
 
+        haptic.DeactivateHaptic();
+
+        GameObject circuit = GameObject.Find("Circuit");
+        spriteR = circuit.GetComponent<SpriteRenderer>();
+        spriteR.sprite = circuitSprite1;
+
+        GameObject taskLabel = GameObject.Find("Task Label");
+        spriteR = taskLabel.GetComponent<SpriteRenderer>();
+        spriteR.sprite = taskSprite;
 
     }
 
@@ -126,6 +162,7 @@ public class Circuit : MonoBehaviour {
 		
 	}
 
+    // formative function
     public void ChangeHaptic(int option)
     {
         //thisHaptic.DeactivateHaptic();
@@ -167,7 +204,7 @@ public class Circuit : MonoBehaviour {
     }
 
 
-
+    // formative function
     public void ChangeCircuit(int C)
     {
         //haptic.DeactivateHaptic();
@@ -215,21 +252,49 @@ public class Circuit : MonoBehaviour {
         switch (C)
         {
             case 1:
-                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1");
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit1b");
                 circuitSpriteR.sprite = circuitSprite1;
-                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH2);                
+                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH2);
+                thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Clicked Circuit 1");
                 break;
             case 2:
-                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit2");
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit2b");
                 circuitSpriteR.sprite = circuitSprite1;
                 haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEMED2);
+                thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Clicked Circuit 2");
                 break;
             case 3:
-                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit3");
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit3b");
                 circuitSpriteR.sprite = circuitSprite1;
                 haptic.UpdateHaptics(HapticSquare.HapticType.STRIPELOW2);
+                thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Clicked Circuit 3");
                 break;
 
+        }
+    }
+
+    public void ChangeResistance()
+    {
+        GameObject circuit = GameObject.Find("Circuit");
+        SpriteRenderer circuitSpriteR = circuit.GetComponent<SpriteRenderer>();
+
+        Slider mySlider = GameObject.Find("SliderR").GetComponent<UnityEngine.UI.Slider>();
+        
+        int R = (int) mySlider.value;
+        switch (R)
+        {
+            case 1:
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit4bR1");
+                circuitSpriteR.sprite = circuitSprite1;
+                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEMED2);
+                thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Circuit with R=1");
+                break;
+            case 2:
+                circuitSprite1 = Resources.Load<Sprite>("Sprites/Circuits/circuit4bR2");
+                circuitSpriteR.sprite = circuitSprite1;
+                haptic.UpdateHaptics(HapticSquare.HapticType.STRIPELOW2);
+                thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Circuit with R=2");
+                break;
         }
     }
 
@@ -237,10 +302,12 @@ public class Circuit : MonoBehaviour {
     {
         if (hint.activeSelf)
         {
+            thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Hide Hint");
             hint.SetActive(false);
         }
         else
         {
+            thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Show Hint");
             hint.SetActive(true);
         }
 

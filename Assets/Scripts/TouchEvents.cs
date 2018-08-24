@@ -8,13 +8,16 @@ public class TouchEvents : MonoBehaviour {
     private HapticSquare haptic;
     private GameObject touched;
     private Vector3 touchPosWorld; //for the hitInformation object
-    private Vector3 touchPosWorldPrev;    
+    private Vector3 touchPosWorldPrev;
+
+    PlayerLog thisPlayerLog;
 
     // Use this for initialization
     void Start ()
     {
         haptic = GameObject.Find("HapticSquare").GetComponent<HapticSquare>();
-        Debug.Log("executing touchevents script");
+
+        thisPlayerLog = GameObject.Find("EventSystem").GetComponent<PlayerLog>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,10 @@ public class TouchEvents : MonoBehaviour {
         {
             //transform the touch position into world space from screen space and store it.
             touchPosWorldPrev = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+
+            thisPlayerLog.AddTouchEvent("Touch Down", touchPosWorldPrev);
+
+            //GlobalVariables.interactionLog.AppendLine(Time.time.ToString() + " touch down");
         }
 
         // TOUCH MOVE //
@@ -82,6 +89,7 @@ public class TouchEvents : MonoBehaviour {
         {
             haptic.DeactivateHaptic();
             //haptic.SetEnabled(false);
+            thisPlayerLog.AddTouchEvent("Touch End", touchPosWorld);
             Debug.Log("touch end circuit outline");
 
         }
@@ -95,6 +103,7 @@ public class TouchEvents : MonoBehaviour {
             if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
             //haptic.SetEnabled(true);
             //haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
+            thisPlayerLog.AddTouchEvent("Touch Move counter-clockwise " + dir , touchPosWorld);
             Debug.Log("moving " + dir);
         }
         else
@@ -103,6 +112,7 @@ public class TouchEvents : MonoBehaviour {
             else if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
             //haptic.SetEnabled(true);
             //haptic.UpdateHaptics(HapticSquare.HapticType.DOTS);
+            thisPlayerLog.AddTouchEvent("Touch Move clockwise " + dir , touchPosWorld);
             Debug.Log("moving opposite direction!");
         }
 

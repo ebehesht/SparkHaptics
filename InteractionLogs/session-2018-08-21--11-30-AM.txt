@@ -1,0 +1,5 @@
+***** Interaction Log File *****
+Date and time: 8/21/2018 11:30:04 AM
+Condition: Haptics
+t = 1.604795, Start Question 1
+t = 9.4122, Start Question 2

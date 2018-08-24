@@ -1,0 +1,36 @@
+***** Interaction Log File *****
+Date and time: 8/24/2018 7:31:24 AM
+Condition: Haptics
+t = 0.9696789, Start Question 1
+=============================================
+t = 1.914785, Start Task 1
+=============================================
+t = 2.464939, Start Question 2
+=============================================
+t = 3.076624, Start Task 2
+=============================================
+t = 3.593623, Start Question 3
+=============================================
+t = 4.319483, Start Task 3
+=============================================
+t = 4.969051, Start Question 4
+=============================================
+t = 5.477163, Start Task 4
+=============================================
+t = 6.955029, Circuit with R=2
+t = 8.723818, Circuit with R=1
+t = 9.552528, Circuit with R=2
+t = 10.29766, Circuit with R=1
+t = 11.07729, Circuit with R=2
+t = 11.97157, Circuit with R=1
+t = 12.88274, Circuit with R=2
+t = 13.84361, Circuit with R=1
+t = 15.13834, Circuit with R=2
+t = 16.76227, Circuit with R=1
+t = 18.35227, Circuit with R=2
+t = 20.11355, Circuit with R=1
+t = 22.49912, Circuit with R=2
+t = 24.86525, Circuit with R=1
+t = 25.90234, Circuit with R=2
+t = 26.87978, Circuit with R=1
+t = 27.51368, Circuit with R=2

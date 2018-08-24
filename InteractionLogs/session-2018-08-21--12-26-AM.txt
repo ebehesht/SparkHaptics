@@ -1,0 +1,6 @@
+***** Interaction Log File *****
+Date and time: 8/21/2018 12:26:56 AM
+Condition: Haptics
+2.061033, Start Task 1
+5.548422, Start Task 2
+t = 8.009456, Touch Down, x = -2.853028, y = 1.95731
