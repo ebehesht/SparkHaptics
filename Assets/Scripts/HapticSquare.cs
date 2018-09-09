@@ -43,38 +43,46 @@ public class HapticSquare : MonoBehaviour
         public static readonly string STRIPEMED = "Textures/options/stripe-medium-circuit";
         public static readonly string STRIPELOW = "Textures/options/stripe-soft-circuit";
 
-        public static readonly string STRIPEHIGH2 = "Textures/options/stripe-d1mm-circuit";
-        public static readonly string STRIPEMED2 = "Textures/options/stripe-d4mm-circuit";
-        public static readonly string STRIPELOW2 = "Textures/options/stripe-d8mm-circuit";
+        public static readonly string STRIPEHIGH2 = "Textures/options/stripe-d1mm-circuitv2";
+        public static readonly string STRIPEMED2 = "Textures/options/stripe-d4mm-circuitv2";
+        public static readonly string STRIPELOW2 = "Textures/options/stripe-d8mm-circuitv2";
 
         public static readonly string DOTS = "Textures/options/dots-circuit";
 
-        public static readonly string BAR01 = "Textures/bars/stripe-density1mm";
-        public static readonly string BAR02 = "Textures/bars/stripe-density2mm";
-        public static readonly string BAR03 = "Textures/bars/stripe-density4mm";
-        public static readonly string BAR04 = "Textures/bars/stripe-density8mm";
+        //public static readonly string BAR01 = "Textures/bars/stripe-density1mm";
+        //public static readonly string BAR02 = "Textures/bars/stripe-density2mm";
+        //public static readonly string BAR03 = "Textures/bars/stripe-density4mm";
+        //public static readonly string BAR04 = "Textures/bars/stripe-density8mm";
 
-        public static readonly string BAR11 = "Textures/bars/stripe-pulse";
-        public static readonly string BAR12 = "Textures/bars/stripe-pulse-blur2";
-        public static readonly string BAR13 = "Textures/bars/stripe-pulse-blur4";
+        //public static readonly string BAR11 = "Textures/bars/stripe-pulse";
+        //public static readonly string BAR12 = "Textures/bars/stripe-pulse-blur2";
+        //public static readonly string BAR13 = "Textures/bars/stripe-pulse-blur4";
 
-        public static readonly string BAR21 = "Textures/bars/stripe-pulse";
-        public static readonly string BAR22 = "Textures/bars/lines-blurW10";
-        public static readonly string BAR23 = "Textures/bars/lines-blurW20";
+        //public static readonly string BAR21 = "Textures/bars/stripe-pulse";
+        //public static readonly string BAR22 = "Textures/bars/lines-blurW10";
+        //public static readonly string BAR23 = "Textures/bars/lines-blurW20";
 
-        public static readonly string BAR33 = "Textures/bars/lines-blursoft";
+        //public static readonly string BAR33 = "Textures/bars/lines-blursoft";
+
+        public static readonly string BARA = "Textures/options/finals/stripes-strong-bar";
+        public static readonly string BARB = "Textures/options/finals/stripes-medium-bar";
+        public static readonly string BARC = "Textures/options/finals/stripes-weak-bar";
 
         // raw versions
+        public static readonly string STRIPEHIGHV = "Textures/options/finals/stripes-strong";
+        public static readonly string STRIPEMEDV = "Textures/options/finals/stripes-medium";
+        public static readonly string STRIPELOWV = "Textures/options/finals/stripes-weak";
+
+        public static readonly string STRIPEHIGHH = "Textures/options/finals/stripes-strong-horizontal";
+        public static readonly string STRIPEMEDH = "Textures/options/finals/stripes-medium-horizontal";
+        public static readonly string STRIPELOWH = "Textures/options/finals/stripes-weak-horizontal";
+
         /*
         public static readonly string CHECKERS = "Textures/options/raw/checker";
 
         public static readonly string NOISEHIGH = "Textures/options/raw/noise-sharp";
         public static readonly string NOISEMED = "Textures/options/raw/noise-original";
         public static readonly string NOISELOW = "Textures/options/raw/noise-blur";
-
-        public static readonly string STRIPEHIGH = "Textures/options/raw/stripe";
-        public static readonly string STRIPEMED = "Textures/options/raw/stripe-medium";
-        public static readonly string STRIPELOW = "Textures/options/raw/stripe-soft";
 
         public static readonly string DOTS = "Textures/options/raw/dots";
         */

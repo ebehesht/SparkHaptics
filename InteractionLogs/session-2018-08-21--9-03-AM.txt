@@ -1,9 +1,0 @@
-***** Interaction Log File *****
-Date and time: 8/21/2018 9:03:24 AM
-Condition: Haptics
-t = 0.1870992, Start Question 1
-=============================================
-t = 3.329647, Start Task 1
-=============================================
-t = 5.945952, Show Hint
-t = 8.563123, Hide Hint

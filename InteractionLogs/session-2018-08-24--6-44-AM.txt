@@ -1,4 +1,0 @@
-***** Interaction Log File *****
-Date and time: 8/24/2018 6:44:02 AM
-Condition: Control
-t = 7.783729, Start Question 1

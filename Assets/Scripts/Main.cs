@@ -11,6 +11,9 @@ public static class GlobalVariables
     public static bool formative = false; // this is for the code for the formative study
     public static bool hapticOn = true;
 
+    public static string currentHapticType;
+    public static bool hintOn = false;
+
     // logging data
     //public static StringBuilder interactionLog;
     public static string filePath;
@@ -21,6 +24,18 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        GameObject thank = GameObject.Find("ThankYou");
+
+        if (GlobalVariables.thisTask == 5)
+        {
+            thank.SetActive(true);
+            GameObject startB = GameObject.Find("Start Button");
+            startB.SetActive(false);
+        }
+        else
+        {
+            thank.SetActive(false);
+        }
             
 	}
 	

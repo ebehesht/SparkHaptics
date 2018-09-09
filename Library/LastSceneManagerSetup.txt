@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Task Explore.unity
+- path: Assets/Scenes/StartEnd.unity
   isLoaded: 1
   isActive: 1

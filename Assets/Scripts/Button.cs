@@ -12,7 +12,6 @@ public class Button : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
     }
 
     // formative version
@@ -80,12 +79,14 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("Task Question");
     }
 
+
     public void EndSession()
     {
         //Create a new log file
         PlayerLog thisPlayerLog = GameObject.Find("EventSystem").GetComponent<PlayerLog>();
         thisPlayerLog.EndLog();
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("StartEnd");
+        Debug.Log("end session");
     }
 
     //main version

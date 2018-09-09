@@ -11,11 +11,15 @@ TagManager:
   - Outline
   - ButtonA
   - ButtonB
-  - RightZone
-  - LeftZone
-  - UpZone
-  - DownZone
   - Haptic
+  - Left
+  - Down
+  - Right
+  - Up
+  - Left Down
+  - Down Right
+  - Right Up
+  - Up Left
   layers:
   - Default
   - TransparentFX
@@ -61,4 +65,10 @@ TagManager:
     locked: 0
   - name: Top
     uniqueID: 1555288967
+    locked: 0
+  - name: Top 2
+    uniqueID: 304175347
+    locked: 0
+  - name: UI
+    uniqueID: 2910340997
     locked: 0

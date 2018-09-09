@@ -10,6 +10,8 @@ public class TouchEvents : MonoBehaviour {
     private Vector3 touchPosWorld; //for the hitInformation object
     private Vector3 touchPosWorldPrev;
 
+    bool touchMoveStarted = false;
+
     PlayerLog thisPlayerLog;
 
     // Use this for initialization
@@ -29,9 +31,39 @@ public class TouchEvents : MonoBehaviour {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             //transform the touch position into world space from screen space and store it.
-            touchPosWorldPrev = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            touchPosWorld = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 
-            thisPlayerLog.AddTouchEvent("Touch Down", touchPosWorldPrev);
+            Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
+
+            //raycast with this information. If we have hit something we can process it.
+            RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
+
+
+            if (hitInformation.collider != null)
+            {
+                if (hitInformation.collider.name == "Close")
+                {
+                    GameObject.Find("circuit-outlineS1").GetComponent<Circuit>().HideHint();
+                }
+                else if (hitInformation.collider.name == "Finish")
+                {
+                    GameObject.Find("Finish Button").GetComponent<Button>().EndSession();
+                }
+                else if (hitInformation.collider.name == "Go Back")
+                {
+                    thisPlayerLog.AddEvent("t = " + Time.time.ToString() + ", Go back to exhibit");
+
+                    GameObject.Find("Confirm Finish").SetActive(false);
+                }
+                else if (hitInformation.collider.name.StartsWith("Zone"))
+                {
+                    if (!GlobalVariables.hintOn) thisPlayerLog.AddTouchEvent("Touch Down", touchPosWorld);
+                    Debug.Log("touch down circuit");
+                }
+
+            }
+
+            touchPosWorldPrev = touchPosWorld;            
 
             //GlobalVariables.interactionLog.AppendLine(Time.time.ToString() + " touch down");
         }
@@ -50,36 +82,29 @@ public class TouchEvents : MonoBehaviour {
 
             if (hitInformation.collider != null)
             {
+                if (!touchMoveStarted)
+                {
+                    if (!GlobalVariables.hintOn) thisPlayerLog.AddTouchEvent("Touch Move Start ", touchPosWorld);
+                    touchMoveStarted = true;
+                }
+                
                 //We should have hit something with a 2D Physics collider, find if the circuit outline is touched
                 string thisZone = hitInformation.transform.gameObject.tag;
-                if (thisZone == "LeftZone")
-                {
-                    FlowCurrent("left");
-                }
-                else if (thisZone == "RightZone")
-                {
-                    FlowCurrent("right");
-                }
-                else if (thisZone == "DownZone")
-                {
-                    FlowCurrent("down");
-                }
-                else if (thisZone == "UpZone")
-                {
-                    FlowCurrent("up");
-                }
-                else
-                {
-                    haptic.DeactivateHaptic();
-                    //haptic.SetEnabled(false);
-                    Debug.Log("ERROR");
-                }
+                string thisZoneName = hitInformation.transform.gameObject.name;
+
+                //determine what texture to feel, if any.
+                FlowCurrent(thisZone, thisZoneName);
             }
             else
-            {
+            {                
                 haptic.DeactivateHaptic();
-                //haptic.SetEnabled(false);
-                Debug.Log("moving out of the outline!");
+                //Debug.Log("moving out of the outline!");
+                if (touchMoveStarted)
+                {
+                    if (!GlobalVariables.hintOn) thisPlayerLog.AddTouchEvent("Touch Move End ", touchPosWorld);
+                    touchMoveStarted = false;
+
+                }
             }
             touchPosWorldPrev = touchPosWorld;
         }
@@ -87,38 +112,119 @@ public class TouchEvents : MonoBehaviour {
         // TOUCH END //
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            haptic.DeactivateHaptic();
-            //haptic.SetEnabled(false);
-            thisPlayerLog.AddTouchEvent("Touch End", touchPosWorld);
-            Debug.Log("touch end circuit outline");
+            //transform the touch position into world space from screen space and store it.
+            touchPosWorld = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 
+            Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
+            //raycast with this information. If we have hit something we can process it.
+            RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
+
+            if (hitInformation.collider != null && hitInformation.collider.name.StartsWith("Zone"))
+            {
+                if (!GlobalVariables.hintOn)
+                {
+                    if (touchMoveStarted) thisPlayerLog.AddTouchEvent("Touch Move End ", touchPosWorld);
+                    thisPlayerLog.AddTouchEvent("Touch Up", touchPosWorldPrev);
+                }                
+                touchMoveStarted = false;
+                //Debug.Log("touch up circuit");
+            }
+
+            haptic.DeactivateHaptic();
         }
     }
 
-    private void FlowCurrent(string dir)
+    private void FlowCurrent(string dir, string zoneName)
     {
-
-        if (Moving(touchPosWorldPrev, touchPosWorld, dir))
+        /*
+        // NON-DIRECTIONAL TEXTURES //
+        if (Feel(touchPosWorldPrev, touchPosWorld, dir))
         {
             if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
-            //haptic.SetEnabled(true);
-            //haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
-            thisPlayerLog.AddTouchEvent("Touch Move counter-clockwise " + dir , touchPosWorld);
+          //haptic.UpdateHaptics(HapticSquare.HapticType.STRIPEHIGH);
+            thisPlayerLog.AddTouchEvent("Touch Move counter-clockwise " + dir + ", " + zoneName , touchPosWorld);
             Debug.Log("moving " + dir);
         }
         else
         {
             if (!GlobalVariables.formative) haptic.DeactivateHaptic();
             else if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
-            //haptic.SetEnabled(true);
-            //haptic.UpdateHaptics(HapticSquare.HapticType.DOTS);
-            thisPlayerLog.AddTouchEvent("Touch Move clockwise " + dir , touchPosWorld);
+           //haptic.UpdateHaptics(HapticSquare.HapticType.DOTS);
+            thisPlayerLog.AddTouchEvent("Touch Move clockwise " + dir + ", " + zoneName, touchPosWorld);
             Debug.Log("moving opposite direction!");
+        }
+        */
+
+        // DIRECTIONAL TEXTURES, E.G., STRIPES //
+        string newCurrentHapticType;
+        if (FeelStripe(touchPosWorldPrev, touchPosWorld, dir) == "vertical")
+        {
+            if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
+            newCurrentHapticType = GlobalVariables.currentHapticType;
+            Debug.Log(newCurrentHapticType);
+            haptic.UpdateHaptics(newCurrentHapticType);
+            if (!GlobalVariables.hintOn) thisPlayerLog.AddTouchEvent("Touch Move Counter-Clockwise " + zoneName + ", " + dir, touchPosWorld);
+            //Debug.Log("moving " + dir);
+        }
+        else if (FeelStripe(touchPosWorldPrev, touchPosWorld, dir) == "horizontal")
+        {
+            if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
+            newCurrentHapticType = GlobalVariables.currentHapticType + "-horizontal";
+            Debug.Log(newCurrentHapticType);
+            haptic.UpdateHaptics(newCurrentHapticType);
+            if (!GlobalVariables.hintOn) thisPlayerLog.AddTouchEvent("Touch Move Counter-Clockwise " + zoneName + ", " + dir, touchPosWorld);
+            //Debug.Log("moving " + dir);
+        }
+        else //don't feel any texture
+        {
+            if (!GlobalVariables.formative) haptic.DeactivateHaptic();
+            else if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
+            if (!GlobalVariables.hintOn) thisPlayerLog.AddTouchEvent("Touch Move Clockwise " + zoneName + ", " + dir, touchPosWorld);
+            //Debug.Log("moving opposite direction!");
         }
 
     }
 
-    private bool Moving(Vector3 v1, Vector3 v2, string direction)
+    private string FeelStripe(Vector3 v1, Vector3 v2, string direction)
+    {
+        switch (direction)
+        {
+            case "Left":
+                if (v1.x > v2.x) return "vertical";
+                else return "none";
+            case "Right":
+                if (v1.x < v2.x) return "vertical";
+                else return "none";
+            case "Down":
+                if (v1.y > v2.y) return "horizontal";
+                else return "none";
+            case "Up":
+                if (v1.y < v2.y) return "horizontal";
+                else return "none";
+            case "Left Down":
+                if (v1.x > v2.x) return "vertical";
+                else if (v1.y > v2.y) return "horizontal";
+                else return "none";
+            case "Down Right":
+                if (v1.y > v2.y) return "horizontal";
+                else if (v1.x < v2.x) return "vertical";
+                else return "none";
+            case "Right Up":
+                if (v1.x < v2.x) return "vertical";
+                else if (v1.y < v2.y) return "horizontal";
+                else return "none";
+            case "Up Left":
+                if (v1.y < v2.y) return "horizontal";
+                else if (v1.x > v2.x) return "vertical";
+                else return "none";
+            default:
+                return "none";
+            
+
+        }
+    }
+
+    private bool Feel(Vector3 v1, Vector3 v2, string direction)
     {
         if (direction == "left")
         {

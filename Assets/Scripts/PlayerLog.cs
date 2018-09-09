@@ -20,8 +20,8 @@ public class PlayerLog : MonoBehaviour {
 
     public void CreateLogFile()
     {
-        GlobalVariables.filePath = Application.dataPath + "/../InteractionLogs/session-" + DateTime.Now.ToString("yyyy-MM-dd--h-mm-tt") + ".txt";
-        //GlobalVariables.filePath = Application.persistentDataPath + "/session-" + DateTime.Now.ToString("yyyy-MM-dd--h-mm-tt") + ".txt";
+        //GlobalVariables.filePath = Application.dataPath + "/../InteractionLogs/session-" + DateTime.Now.ToString("yyyy-MM-dd--h-mm-tt") + ".txt";
+        GlobalVariables.filePath = Application.persistentDataPath + "/session-" + DateTime.Now.ToString("yyyy-MM-dd--h-mm-tt") + ".txt";
 
         if (!File.Exists(GlobalVariables.filePath))
         {
@@ -68,7 +68,7 @@ public class PlayerLog : MonoBehaviour {
     {
         using (StreamWriter sw = File.AppendText(GlobalVariables.filePath))
         {
-            sw.WriteLine("End logging data");
+            sw.WriteLine("t = " + Time.time.ToString() + ", End logging data");
 
         }
 

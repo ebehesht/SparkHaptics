@@ -1,3 +1,0 @@
-***** Interaction Log File *****
-Date and time: 8/21/2018 8:58:16 AM
-Condition: Haptics

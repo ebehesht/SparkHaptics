@@ -1,8 +1,8 @@
 Android
 PlayerPath?
-C:/Users/ebe215/Documents/Unity-Project-Builds/sparkCHapticOff.apk
+C:/Users/ebe215/Documents/Unity-Project-Builds/sparkCHaptic2.apk
 SceneListBegin?
-Assets/Scenes/Start.unity
+Assets/Scenes/StartEnd.unity
 Assets/Scenes/Task Question.unity
 Assets/Scenes/Task Explore.unity
 SceneListEnd?
