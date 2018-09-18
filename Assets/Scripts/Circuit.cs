@@ -22,8 +22,18 @@ public class Circuit : MonoBehaviour {
     Sprite buttonC2ClickedSprite;
     Sprite buttonC3ClickedSprite;
 
+    //Sprite buttonC1Sprite = Resources.Load<Sprite>("Sprites/Buttons/circuit1");
+    //Sprite buttonC1ClickedSprite = Resources.Load<Sprite>("Sprites/Buttons/circuit1clicked");
+    //Sprite buttonC2Sprite = Resources.Load<Sprite>("Sprites/Buttons/circuit2");
+    //Sprite buttonC2ClickedSprite = Resources.Load<Sprite>("Sprites/Buttons/circuit2clicked");
+    //Sprite buttonC3Sprite = Resources.Load<Sprite>("Sprites/Buttons/circuit3");
+    //Sprite buttonC3ClickedSprite = Resources.Load<Sprite>("Sprites/Buttons/circuit3clicked");
+
     Sprite buttonReadSprite;
     Sprite buttonReadClickedSprite;
+
+    //Sprite buttonReadSprite = Resources.Load<Sprite>("Sprites/Buttons/read");
+    //Sprite buttonReadClickedSprite = Resources.Load<Sprite>("Sprites/Buttons/readclicked");
 
     private Sprite taskSprite;
 
@@ -47,8 +57,7 @@ public class Circuit : MonoBehaviour {
 
     }
 
-
-    private void StartTasks()
+        private void StartTasks()
     {
         thisPlayerLog = GameObject.Find("EventSystem").GetComponent<PlayerLog>();
 
@@ -86,6 +95,8 @@ public class Circuit : MonoBehaviour {
 
         buttonReadSprite = Resources.Load<Sprite>("Sprites/Buttons/read");
         buttonReadClickedSprite = Resources.Load<Sprite>("Sprites/Buttons/readclicked");
+
+        GlobalVariables.hintOn = false;
 
         switch (GlobalVariables.thisTask)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System;
 
 public class TouchEvents : MonoBehaviour {
     private HapticSquare haptic;
@@ -136,6 +137,122 @@ public class TouchEvents : MonoBehaviour {
 
     private void FlowCurrent(string dir, string zoneName)
     {
+        string newCurrentHapticType;
+        String thisFeel = FeelStripe(touchPosWorldPrev, touchPosWorld, dir);
+        if (thisFeel.StartsWith("vertical"))
+        {
+            if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
+            newCurrentHapticType = GlobalVariables.currentHapticType;
+            haptic.UpdateHaptics(newCurrentHapticType);
+            if (!GlobalVariables.hintOn)
+            {
+                if (thisFeel.EndsWith("clockwise")) thisPlayerLog.AddTouchEvent("Touch Move Clockwise " + zoneName + ", " + dir, touchPosWorld);
+                else thisPlayerLog.AddTouchEvent("Touch Move Counter-Clockwise " + zoneName + ", " + dir, touchPosWorld);
+            }
+        }
+        else if (thisFeel.StartsWith("horizontal"))
+        {
+            if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
+            newCurrentHapticType = GlobalVariables.currentHapticType + "-horizontal";
+            haptic.UpdateHaptics(newCurrentHapticType);
+            if (!GlobalVariables.hintOn)
+            {
+                if (thisFeel.EndsWith("clockwise")) thisPlayerLog.AddTouchEvent("Touch Move Clockwise " + zoneName + ", " + dir, touchPosWorld);
+                else thisPlayerLog.AddTouchEvent("Touch Move Counter-Clockwise " + zoneName + ", " + dir, touchPosWorld);
+            }
+        }
+        else //don't feel any texture
+        {
+            if (!GlobalVariables.formative) haptic.DeactivateHaptic();
+            else if (GlobalVariables.hapticOn) haptic.ActivateHaptic();
+            if (!GlobalVariables.hintOn) thisPlayerLog.AddTouchEvent("Error Touch Move Clockwise " + zoneName + ", " + dir, touchPosWorld);
+            //Debug.Log("moving opposite direction!");
+        }
+
+    }
+
+    private string FeelStripe(Vector3 v1, Vector3 v2, string direction)
+    {
+        switch (direction)
+        {
+            case "Left":
+                if (v1.x > v2.x) return "vertical";
+                else return "vertical clockwise";
+            case "Right":
+                if (v1.x < v2.x) return "vertical";
+                else return "vertical clockwise";
+            case "Down":
+                if (v1.y > v2.y) return "horizontal";
+                else return "horizontal clockwise";
+            case "Up":
+                if (v1.y < v2.y) return "horizontal";
+                else return "horizontal clockwise";
+            case "Left Down":
+                if (Math.Abs(v1.x - v2.x) >= Math.Abs(v1.y - v2.y))
+                {
+                    if (v1.x > v2.x) return "vertical";
+                    else return "vertical clockwise";
+                }
+                else
+                {
+                    if (v1.y > v2.y) return "horizontal";
+                    else return "horizontal clockwise";
+                }
+            //if (v1.x > v2.x) return "vertical";
+            //else if (v1.y > v2.y) return "horizontal";
+            //else return "none";
+            case "Down Right":
+                if (Math.Abs(v1.x - v2.x) >= Math.Abs(v1.y - v2.y))
+                {
+                    if (v1.x < v2.x) return "vertical";
+                    else return "vertical clockwise";
+                }
+                else
+                {
+                    if (v1.y > v2.y) return "horizontal";
+                    else return "horizontal clockwise";
+                }
+            //if (v1.y > v2.y) return "horizontal";
+            //else if (v1.x < v2.x) return "vertical";
+            //else return "none";
+            case "Right Up":
+                if (Math.Abs(v1.x - v2.x) >= Math.Abs(v1.y - v2.y))
+                {
+                    if (v1.x < v2.x) return "vertical";
+                    else return "vertical clockwise";
+                }
+                else
+                {
+                    if (v1.y < v2.y) return "horizontal";
+                    else return "horizontal clockwise";
+                }
+            //if (v1.x < v2.x) return "vertical";
+            //else if (v1.y < v2.y) return "horizontal";
+            //else return "none";
+            case "Up Left":
+                if (Math.Abs(v1.x - v2.x) >= Math.Abs(v1.y - v2.y))
+                {
+                    if (v1.x > v2.x) return "vertical";
+                    else return "vertical clockwise";
+                }
+                else
+                {
+                    if (v1.y < v2.y) return "horizontal";
+                    else return "horizontal clockwise";
+                }
+            //if (v1.y < v2.y) return "horizontal";
+            //else if (v1.x > v2.x) return "vertical";
+            //else return "none";
+            default:
+                return "none";
+
+
+        }
+    }
+
+
+    private void FlowCurrentDirectional(string dir, string zoneName)
+    {
         /*
         // NON-DIRECTIONAL TEXTURES //
         if (Feel(touchPosWorldPrev, touchPosWorld, dir))
@@ -185,7 +302,8 @@ public class TouchEvents : MonoBehaviour {
 
     }
 
-    private string FeelStripe(Vector3 v1, Vector3 v2, string direction)
+
+    private string FeelStripeDirectional(Vector3 v1, Vector3 v2, string direction)
     {
         switch (direction)
         {
